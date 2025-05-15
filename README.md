@@ -28,7 +28,7 @@
 *   Securely manage your Google AI API key using Cloudflare's environment variables, keeping it out of client-side code.
 *   Provide a simple, customizable HTML interface for interacting with the AI.
 *   Leverage Cloudflare's global network for potentially lower latency and high scalability.
-<a href="https://www.cloudflare.com/"><img src="https://cf-assets.www.cloudflare.com/dzlvafdwdttg/3NFuZG6yz35QXSBt4ToS9y/920197fd1229641b4d826d9f5d0aa169/globe.webp" alt="Cloudflare Workers" width="960"/></a>
+<img src="https://cf-assets.www.cloudflare.com/dzlvafdwdttg/3NFuZG6yz35QXSBt4ToS9y/920197fd1229641b4d826d9f5d0aa169/globe.webp" alt="Cloudflare Workers" width="960"/>
 <br>Before: Your area > Not allow to access > Gemini ×
 <br>Now : Your area > Cloudflare Worker > Gemini √
 
