@@ -39,7 +39,7 @@
 *   利用Cloudflare的全球网络实现潜在的低延迟和高可扩展性。
 
 ## 🎈 Features | 功能
-<img src="https://i.ibb.co/xK1hFrSp/global.webp">
+![1](https://github.com/user-attachments/assets/93bd0528-1288-4ee9-8607-28a08a2e8d4e)
 *   **🤖 Proxy AI Requests / 代理AI请求:**
     *   EN: Securely routes requests to Google's Gemini and Imagen APIs.
     *   ZH: 安全地将请求路由到Google的Gemini和Imagen API。
@@ -61,8 +61,7 @@
 *   **🌍 No VPN Proxy Required / 访问无需翻牆挂代理:**
     *   EN: For users in regions with restricted access, this proxy on Cloudflare's network can enable access without a VPN for the end-user.
     *   ZH: 对于某些地区可能无法直接访问Google API的用户，在Cloudflare的网络上部署此代理可以让最终用户无需翻墙即可访问。
-![Screenshot 2025-05-16 020754](https://github.com/user-attachments/assets/c0b90e3c-8007-4f6d-a20b-60994a8136c9)
-
+![2](https://github.com/user-attachments/assets/388413fb-9f92-4fdd-a521-36169dbf3d1e)
 ## 👍 Advantages of using Cloudflare Workers | 使用Cloudflare Worker的优点
 
 **EN:**
