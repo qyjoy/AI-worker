@@ -28,8 +28,7 @@
 *   Securely manage your Google AI API key using Cloudflare's environment variables, keeping it out of client-side code.
 *   Provide a simple, customizable HTML interface for interacting with the AI.
 *   Leverage Cloudflare's global network for potentially lower latency and high scalability.
-<img src="![globak](https://github.com/user-attachments/assets/363037c4-285a-46e2-814f-aff992ac2693)
-" alt="Cloudflare Global" width="960"/>
+<a><img src="https://cf-assets.www.cloudflare.com/zkvhlag99gkb/4CNamrq69wPhKeFeFQBNe4/b65099939b3140c3cf947898ffea271f/Workers-diagram-MVP--copy-3_3x-8--1-.png" alt="Cloudflare Workers" width="700"/></a>
 <br>Before: Your area > Not allow to access > Gemini ×
 <br>Now : Your area > Cloudflare Worker > Gemini √
 
@@ -39,7 +38,7 @@
 *   提供一个简单、可定制的HTML界面与AI进行交互。
 *   利用Cloudflare的全球网络实现潜在的低延迟和高可扩展性。
 
-## <img src="https://github.com/user-attachments/assets/0c014e9d-9c97-430e-b339-f63c91665d7f" alt="cloudflare icon" style="height: 20px; vertical-align: middle;"> Features | 功能
+## 🎈 Features | 功能
 <img src="https://i.ibb.co/xK1hFrSp/global.webp">
 *   **🤖 Proxy AI Requests / 代理AI请求:**
     *   EN: Securely routes requests to Google's Gemini and Imagen APIs.
