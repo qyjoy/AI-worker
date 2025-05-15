@@ -40,7 +40,7 @@
 *   利用Cloudflare的全球网络实现潜在的低延迟和高可扩展性。
 
 ## <img src="https://github.com/user-attachments/assets/0c014e9d-9c97-430e-b339-f63c91665d7f" alt="cloudflare icon" style="height: 20px; vertical-align: middle;"> Features | 功能
-<img src="https://cf-assets.www.cloudflare.com/dzlvafdwdttg/3NFuZG6yz35QXSBt4ToS9y/920197fd1229641b4d826d9f5d0aa169/globe.webp">
+<img src="https://i.ibb.co/xK1hFrSp/global.webp">
 *   **🤖 Proxy AI Requests / 代理AI请求:**
     *   EN: Securely routes requests to Google's Gemini and Imagen APIs.
     *   ZH: 安全地将请求路由到Google的Gemini和Imagen API。
