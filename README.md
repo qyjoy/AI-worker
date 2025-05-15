@@ -1,7 +1,5 @@
 <p align="center">
-  <a href="https://www.cloudflare.com/" target="_blank">
-    <img src="https://private-user-images.githubusercontent.com/85855855/437704881-46ccd556-3d67-465e-aee8-5f8b3c0c13ef.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDczMzM5NjksIm5iZiI6MTc0NzMzMzY2OSwicGF0aCI6Ii84NTg1NTg1NS80Mzc3MDQ4ODEtNDZjY2Q1NTYtM2Q2Ny00NjVlLWFlZTgtNWY4YjNjMGMxM2VmLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MTUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTE1VDE4Mjc0OVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFkMTI5YWUzMzMzZDcxOWI2MmI5MWMxMGFmNGUyZjE2ODg1NTRjZmNkZjZhZjdjMzc2MDYxNmI1YzRmMzAxNzMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.XO8kuqomHRAm1SfY9X8CzMGqeCjitnwuD2wju0e663Q" alt="Cloudflare Workers Banner" width="700"/>
-  </a>
+  <a href="https://www.cloudflare.com/"><img src="https://cf-assets.www.cloudflare.com/zkvhlag99gkb/msyMXSSf3hlUnawe68PDG/d0edfa4f2703a94018c7ab65d9808616/45DEDC7B-B31F-461C-B786-12FBAF1A5391.png" alt="Cloudflare Workers" width="700"/></a>
 </p>
 <h1 align="center">Ultra AI ☁️ Cloudflare Gemini & Imagen Proxy</h1>
 
