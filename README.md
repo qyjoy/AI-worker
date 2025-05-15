@@ -2,13 +2,11 @@
   <a href="https://www.cloudflare.com/"><img src="https://cf-assets.www.cloudflare.com/zkvhlag99gkb/msyMXSSf3hlUnawe68PDG/d0edfa4f2703a94018c7ab65d9808616/45DEDC7B-B31F-461C-B786-12FBAF1A5391.png" alt="Cloudflare Workers" width="700"/></a>
 </p>
 <h1 align="center">Ultra AI ☁️ Cloudflare Gemini & Imagen Proxy</h1>
-
 <p align="center">
   <strong>EN:</strong> A simple yet powerful Cloudflare Worker to proxy requests to Google's Gemini (text) and Imagen (image) APIs. Enables access to advanced AI models from the edge, securely managing API keys and bypassing regional restrictions.
   <br>
   <strong>ZH:</strong> 一个简洁而强大的Cloudflare Worker，用于代理请求至Google的Gemini（文本）和Imagen（图像）API。使得您可以从边缘访问高级AI模型，安全管理API密钥，并绕过地域限制。
 </p>
-
 <p align="center">
   <a href="https://github.com/qyjoy/Gemini-CFworker/stargazers"><img src="https://img.shields.io/github/stars/your-username/your-repo-name?style=social" alt="GitHub Stars"></a>
   <a href="https://github.com/qyjoy/Gemini-CFworker/issues"><img src="https://img.shields.io/github/issues/your-username/your-repo-name?style=flat-square&color=orange" alt="GitHub Issues"></a>
@@ -16,7 +14,6 @@
 <a href="https://workers.cloudflare.com/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Cloudflare%20Workers-Ready-orange?style=flat-square&logo=cloudflare" alt="Cloudflare Workers Ready"></a>
 <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Google%20Gemini-Compatible-blueviolet?style=flat-square&logo=google" alt="Google Gemini Compatible"></a>
 </p>
-
 <p align="center">
   <em>Free, Private Gemini Access via Cloudflare. No VPN needed for restricted Countries. Full Control.</em>
   <br>
@@ -31,7 +28,7 @@
 *   Securely manage your Google AI API key using Cloudflare's environment variables, keeping it out of client-side code.
 *   Provide a simple, customizable HTML interface for interacting with the AI.
 *   Leverage Cloudflare's global network for potentially lower latency and high scalability.
-
+<a href="https://www.cloudflare.com/"><img src="https://cf-assets.www.cloudflare.com/dzlvafdwdttg/3NFuZG6yz35QXSBt4ToS9y/920197fd1229641b4d826d9f5d0aa169/globe.webp" alt="Cloudflare Workers" width="960"/></a>
 <br>Before: Your area > Not allow to access > Gemini ×
 <br>Now : Your area > Cloudflare Worker > Gemini √
 
