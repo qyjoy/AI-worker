@@ -3,8 +3,6 @@
     <img src="https://private-user-images.githubusercontent.com/85855855/437704881-46ccd556-3d67-465e-aee8-5f8b3c0c13ef.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDczMzM5NjksIm5iZiI6MTc0NzMzMzY2OSwicGF0aCI6Ii84NTg1NTg1NS80Mzc3MDQ4ODEtNDZjY2Q1NTYtM2Q2Ny00NjVlLWFlZTgtNWY4YjNjMGMxM2VmLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MTUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTE1VDE4Mjc0OVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFkMTI5YWUzMzMzZDcxOWI2MmI5MWMxMGFmNGUyZjE2ODg1NTRjZmNkZjZhZjdjMzc2MDYxNmI1YzRmMzAxNzMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.XO8kuqomHRAm1SfY9X8CzMGqeCjitnwuD2wju0e663Q" alt="Cloudflare Workers Banner" width="700"/>
   </a>
 </p>
-Before: Your area > Not allow to access > Gemini ×
-Now : Your area > Cloudflare Worker > Gemini √
 <h1 align="center">Ultra AI ☁️ Cloudflare Gemini & Imagen Proxy</h1>
 
 <p align="center">
@@ -35,7 +33,8 @@ Now : Your area > Cloudflare Worker > Gemini √
 *   Securely manage your Google AI API key using Cloudflare's environment variables, keeping it out of client-side code.
 *   Provide a simple, customizable HTML interface for interacting with the AI.
 *   Leverage Cloudflare's global network for potentially lower latency and high scalability.
-
+Before: Your area > Not allow to access > Gemini ×
+<br>Now : Your area > Cloudflare Worker > Gemini √
 **ZH:** 此Cloudflare Worker项目充当Google生成式AI API（Gemini用于文本生成，Imagen用于图像生成）的安全高效代理。它允许您：
 *   从任何地方访问Google强大的AI模型，包括那些可能难以直接访问的地区。
 *   使用Cloudflare的环境变量安全地管理您的Google AI API密钥，避免其暴露在客户端代码中。
