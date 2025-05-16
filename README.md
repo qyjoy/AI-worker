@@ -8,9 +8,9 @@
   <strong>ZH:</strong> 一个简洁而强大的Cloudflare Worker，用于代理请求至Google的Gemini（文本）和Imagen（图像）API。使得您可以从边缘访问高级AI模型，安全管理API密钥，并绕过地域限制，同时支持其他平台worker
 </p>
 <p align="center">
-  <a href="https://github.com/qyjoy/Gemini-CFworker/stargazers"><img src="https://img.shields.io/github/stars/your-username/your-repo-name?style=social" alt="GitHub Stars"></a>
-  <a href="https://github.com/qyjoy/Gemini-CFworker/issues"><img src="https://img.shields.io/github/issues/your-username/your-repo-name?style=flat-square&color=orange" alt="GitHub Issues"></a>
-  <a href="https://github.com/qyjoy/Gemini-CFworker/blob/main/LICENSE"><img src="https://img.shields.io/github/license/your-username/your-repo-name?style=flat-square&color=blue" alt="License"></a>
+  <a href="https://github.com/qyjoy/Gemini-CFworker/stargazers"><img src="https://img.shields.io/github/stars/qyjoy/Gemini-CFworker?style=social" alt="GitHub Stars"></a>
+  <a href="https://github.com/qyjoy/Gemini-CFworker/issues"><img src="https://img.shields.io/github/issues/qyjoy/Gemini-CFworker?style=flat-square&color=orange" alt="GitHub Issues"></a>
+  <a href="https://github.com/qyjoy/Gemini-CFworker/blob/main/LICENSE"><img src="https://img.shields.io/github/license/qyjoy/Gemini-CFworker?style=flat-square&color=blue" alt="License"></a>
 <a href="https://workers.cloudflare.com/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Cloudflare%20Workers-Ready-orange?style=flat-square&logo=cloudflare" alt="Cloudflare Workers Ready"></a>
 <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Google%20Gemini-Compatible-blueviolet?style=flat-square&logo=google" alt="Google Gemini Compatible"></a>
 </p>
