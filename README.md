@@ -139,11 +139,44 @@ Your AI proxy should now be live at the URL provided by Cloudflare (e.g., `your-
     *   点击“发送 Post”按钮。
 
 ### Customization | 自定义
-
 *   **HTML & CSS:** Modify `html-renderer.js` to change the look and feel of the front-end.
 *   **Models:** Update the `allowedModels` array in `api-handler.js` if new Gemini/Imagen models are released or if you want to restrict options.
 *   **Themes:** Add or modify themes in the `themeConfig` object within the client-side script in `html-renderer.js`.
+### ⚠️ 澄清：“API 转发 / API 代理” ≠ “网络代理”Clarification: “API Forwarding / API Proxy” ≠ “Network Proxy”
+**ZH**
+有些用户担心本项目因“代理”字样是否违反 Cloudflare 服务条款，这里做一个清晰的技术澄清：
+本项目属于**API 转发 / API 代理（API forwarder / proxy）**，**不是网络代理（Network Proxy）**。
+- ✅ 它仅转发请求到**特定的公开 API（如 Google 的 Gemini 和 Imagen）**
+- ❌ 它不支持访问任意网站
+- ❌ 它不提供 VPN、SOCKS5、Shadowsocks、Trojan 等网络代理协议或服务
+Cloudflare 所禁止的“网络代理”，指的是通用数据转发或翻墙用途的工具。而本项目只是通过 Cloudflare Worker 将 Web 前端请求安全透明地转发给合法 API 服务，功能专一、无滥用空间。
+因此，本项目**完全符合 Cloudflare 使用政策**，是 Cloudflare Worker 的标准合规用例。
+---
+### 📊 API 转发 vs. 网络代理 对比表
+| 特性 / Feature                             | API Forward (API Proxy)                         | Network Proxy (VPN/SOCKS/Shadowsocks 等)      |
+|-------------------------------------------|------------------------------------------------|----------------------------------------------|
+| 🔌 访问范围                                | 指定 API 服务（如 Gemini、Imagen 等）          | 任意网站、应用程序、通用网络流量              |
+| 📦 数据内容                                | 请求和响应均为结构化 API 数据（如 JSON）       | 原始 IP 包或加密流量（如 TCP、UDP）            |
+| 🧠 用途                                     | 前端→Worker→API 安全转发，用于接口调用          | 匿名访问、翻墙、绕过网络限制                   |
+| 🔐 安全性                                   | 精确控制目标 API，不可滥用                      | 可被用于非法流量、IP 池攻击、绕过审查等        |
+| 🛠️ 底层协议                                | HTTPS 请求转发                                  | TCP/IP 层或自定义加密隧道协议（如 VPN）        |
+| ☁️ Cloudflare 是否允许使用                 | ✅ 是，属于 Cloudflare Worker 正常用途           | ❌ 否，违反 Acceptable Use Policy              |
+| ⚙️ 部署复杂度                               | 低：纯 Worker 脚本 + API 配置                   | 高：需要服务端、端口映射、防火墙规则等         |
+| 🎯 示例项目                                 | Cloudflare Worker 转发 Gemini API              | Clash、Trojan、V2Ray、Shadowsocks 等工具       |
+> ✅ 本项目使用的是 **API Forward** 模式，完全符合 Cloudflare 的服务政策，安全、可控、稳定。
+**EN:**
+Some users have asked whether this project violates Cloudflare's Terms of Service because of the term "proxy" being used. Let's clarify:
+This project is an **API forwarder / API proxy**, not a **network proxy**.
+- ✅ It only relays requests to **specific public APIs** (e.g., Google Gemini, Imagen, etc.)
+- ❌ It does **not** allow general access to arbitrary websites
+- ❌ It does **not** provide tunnels, SOCKS5, Shadowsocks, or VPN-like services
+In Cloudflare’s terms, a **network proxy** refers to tools that allow general traffic routing and circumvention of regional restrictions. This project does none of that.
+Therefore, this project **fully complies** with Cloudflare’s Acceptable Use Policy and is a **legitimate use of Cloudflare Workers** to route frontend API requests through serverless infrastructure.
+> 🔒 This is safe, legal, and compliant.
 
+
+
+> 🔒 安全合规，放心部署。
 ## 📝 License | 许可证
 
 **EN:** This project is free software: you can redistribute it and/or modify it under the terms of the **GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.**
