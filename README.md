@@ -164,7 +164,7 @@ You can find the full license text in the [LICENSE](LICENSE) file.
 ---
 
 <p align="center">
-  Made with ❤️ by 輕音Joy
+  Made with ❤️ by 輕音Joy with Gemini Optimization	
   <br>
   <em>If you find this useful, please consider giving a ⭐!</em>
 </p>
