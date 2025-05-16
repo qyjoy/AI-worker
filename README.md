@@ -172,11 +172,7 @@ This project is an **API forwarder / API proxy**, not a **network proxy**.
 - ❌ It does **not** provide tunnels, SOCKS5, Shadowsocks, or VPN-like services
 In Cloudflare’s terms, a **network proxy** refers to tools that allow general traffic routing and circumvention of regional restrictions. This project does none of that.
 Therefore, this project **fully complies** with Cloudflare’s Acceptable Use Policy and is a **legitimate use of Cloudflare Workers** to route frontend API requests through serverless infrastructure.
-> 🔒 This is safe, legal, and compliant.
-
-
-
-> 🔒 安全合规，放心部署。
+> 🔒 This is safe, legal, and compliant. 安全合规，放心部署。
 ## 📝 License | 许可证
 
 **EN:** This project is free software: you can redistribute it and/or modify it under the terms of the **GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.**
