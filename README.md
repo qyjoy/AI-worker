@@ -5,7 +5,7 @@
 <p align="center">
   <strong>EN:</strong> A simple yet powerful Cloudflare Worker to proxy requests to Google's Gemini (text) and Imagen (image) APIs. Enables access to advanced AI models from the edge, securely managing API keys and bypassing regional restrictions.
   <br>
-  <strong>ZH:</strong> 一个简洁而强大的Cloudflare Worker，用于代理请求至Google的Gemini（文本）和Imagen（图像）API。使得您可以从边缘访问高级AI模型，安全管理API密钥，并绕过地域限制，同时支持其他平台worker
+  <strong>ZH:</strong> 一个简洁而强大的Cloudflare Worker，用于转发API请求至各大AI平台，并且将计算节点靠近用户部署，使得您可以从边缘访问高级AI模型，结合KV安全管理API密钥，并绕过地域限制，同时支持其他平台worker,后期将拓展R2和D1数据库支持
 </p>
 <p align="center">
   <a href="https://github.com/qyjoy/Gemini-CFworker/stargazers"><img src="https://img.shields.io/github/stars/qyjoy/Gemini-CFworker?style=social" alt="GitHub Stars"></a>
@@ -17,7 +17,7 @@
 <p align="center">
   <em>Free, Private Gemini Access via Cloudflare. No VPN needed for restricted Countries. Full Control.</em>
   <br>
-  <em>通过Cloudflare免费、私有化访问和管理Gemini~大陆用户无烦恼，完全由自己掌控。</em>
+  <em>通过Cloudflare免费、私有化访问和管理Gemini~摆脱地域限制无烦恼，完全由自己掌控。</em>
 </p>
 
 ---
