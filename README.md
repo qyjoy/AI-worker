@@ -61,7 +61,7 @@
 *   **🌍 No VPN Proxy Required / 访问无需翻牆挂代理:**
     *   EN: For users in regions with restricted access, this proxy on Cloudflare's network can enable access without a VPN for the end-user.
     *   ZH: 对于某些地区可能无法直接访问Google API的用户，在Cloudflare的网络上部署此代理可以让最终用户无需翻墙即可访问。
-![2](https://github.com/user-attachments/assets/388413fb-9f92-4fdd-a521-36169dbf3d1e)
+![v4b](https://github.com/user-attachments/assets/0cdfbd18-01d6-4f6f-9ab6-5e66479cf6a0)
 ## 👍 Advantages of using Cloudflare Workers | 使用Cloudflare Worker的优点
 
 **EN:**
@@ -70,14 +70,13 @@
 *   **📈 Scalability:** Automatically scales with traffic.
 *   **🚀 Ease of Deployment:** Deploy directly from the Cloudflare dashboard or via Wrangler CLI.
 *   **🔒 Secure API Key Handling:** Keep your API keys safe using encrypted environment variables.
-![v4b](https://github.com/user-attachments/assets/0cdfbd18-01d6-4f6f-9ab6-5e66479cf6a0)
+  ![2](https://github.com/user-attachments/assets/388413fb-9f92-4fdd-a521-36169dbf3d1e)
 **ZH:**
 *   **💸 无服务器且经济高效：** 无需管理服务器。免费套餐通常足以满足个人项目需求。
 *   **⚡ 边缘部署：** 更接近用户运行，减少延迟。支持多种平台worker
 *   **📈 可扩展性：** 随流量自动扩展。
 *   **🚀 易于部署：** 可直接通过Cloudflare等平台控制台或Wrangler CLI部署。
 *   **🔒 安全的API密钥处理：** 使用加密的环境变量安全保管您的API密钥。
-
 ## 🚀 Setup & Deployment | 设置与部署 <img src="https://github.com/user-attachments/assets/0c014e9d-9c97-430e-b339-f63c91665d7f" alt="cloudflare icon" style="height: 20px; vertical-align: middle;">
 Follow these steps to deploy your own instance:
 请按照以下步骤部署您自己的实例：
