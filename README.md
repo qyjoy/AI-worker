@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://www.cloudflare.com/"><img src="https://cf-assets.www.cloudflare.com/zkvhlag99gkb/msyMXSSf3hlUnawe68PDG/d0edfa4f2703a94018c7ab65d9808616/45DEDC7B-B31F-461C-B786-12FBAF1A5391.png" alt="Cloudflare Workers" width="700"/></a>
 </p>
-<h1 align="center">Ultra AI ☁️ Cloudflare Gemini & Imagen Proxy</h1>
+<h1 align="center">Ultra AI ☁️ Cloudflare Serverless worker</h1>
 <p align="center">
   <strong>EN:</strong> A simple yet powerful Cloudflare Worker to proxy requests to Google's Gemini (text) and Imagen (image) APIs. Enables access to advanced AI models from the edge, securely managing API keys and bypassing regional restrictions.
   <br>
