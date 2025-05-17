@@ -18,9 +18,8 @@
   <em>Free, Private Gemini Access via Cloudflare. No VPN needed for restricted Countries. Full Control.</em>
   <br>
   <em>通过Cloudflare免费、私有化访问和管理Gemini~摆脱地域限制无烦恼，完全由自己掌控，原生gemini等AI模型，支持上传图片，录音等</em>
-  ![v4a](https://github.com/user-attachments/assets/0926bd48-3479-438e-8cf9-2572d766f613)
 </p>
-
+![v4a](https://github.com/user-attachments/assets/8d3bf517-cf41-410d-bfcb-6b0b8f2899e5)
 ---
 
 ## 🌐 Overview | 概述
@@ -30,7 +29,7 @@
 *   Provide a simple, customizable HTML interface for interacting with the AI.
 *   Leverage Cloudflare's global network for potentially lower latency and high scalability.
 <a><img src="https://cf-assets.www.cloudflare.com/zkvhlag99gkb/4CNamrq69wPhKeFeFQBNe4/b65099939b3140c3cf947898ffea271f/Workers-diagram-MVP--copy-3_3x-8--1-.png" alt="Cloudflare Workers" width="700"/></a>
-![v4b](https://github.com/user-attachments/assets/87152626-2117-4b48-9eee-6a4227859318)
+
 <br>Before: Your area > Not allow to access > Gemini ×
 <br>Now : Your area > Cloudflare Worker > Gemini √
 
@@ -72,7 +71,7 @@
 *   **📈 Scalability:** Automatically scales with traffic.
 *   **🚀 Ease of Deployment:** Deploy directly from the Cloudflare dashboard or via Wrangler CLI.
 *   **🔒 Secure API Key Handling:** Keep your API keys safe using encrypted environment variables.
-
+![v4b](https://github.com/user-attachments/assets/0cdfbd18-01d6-4f6f-9ab6-5e66479cf6a0)
 **ZH:**
 *   **💸 无服务器且经济高效：** 无需管理服务器。免费套餐通常足以满足个人项目需求。
 *   **⚡ 边缘部署：** 更接近用户运行，减少延迟。支持多种平台worker
