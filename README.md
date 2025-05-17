@@ -19,16 +19,14 @@
   <br>
   <em>通过Cloudflare免费、私有化访问和管理Gemini~摆脱地域限制无烦恼，完全由自己掌控，原生gemini等AI模型，支持上传图片，录音等</em>
 </p>
----
 
 ## 🌐 Overview | 概述
-
+<a><img src="https://cf-assets.www.cloudflare.com/zkvhlag99gkb/4CNamrq69wPhKeFeFQBNe4/b65099939b3140c3cf947898ffea271f/Workers-diagram-MVP--copy-3_3x-8--1-.png" alt="Cloudflare Workers" width="700"/></a>
 **EN:** This Cloudflare Worker acts as a secure and efficient proxy for Google's Generative AI APIs (Gemini for text generation, Imagen for image generation). It allows you to:
 *   Access Google's powerful AI models from anywhere, including regions where direct access might be challenging.
 *   Securely manage your Google AI API key using Cloudflare's environment variables, keeping it out of client-side code.
 *   Provide a simple, customizable HTML interface for interacting with the AI.
 *   Leverage Cloudflare's global network for potentially lower latency and high scalability.
-<a><img src="https://cf-assets.www.cloudflare.com/zkvhlag99gkb/4CNamrq69wPhKeFeFQBNe4/b65099939b3140c3cf947898ffea271f/Workers-diagram-MVP--copy-3_3x-8--1-.png" alt="Cloudflare Workers" width="700"/></a>
 ![v4a](https://github.com/user-attachments/assets/8600405c-ca7b-42d8-8f3f-1bfb7aee0252)
 
 <br>Before: Your area > Not allow to access > Gemini ×
