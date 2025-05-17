@@ -146,7 +146,7 @@ Your AI proxy should now be live at the URL provided by Cloudflare (e.g., `your-
 ### 🔄 贡献指南
 请基于 `discover` 分支开发您的功能并提交 Pull Request。
 会定期从 `discover` 中精选高质量的更改合并进 `main`。
-
+Contributer/开发者联系邮箱:dev@qyjoy.vip
 ### ⚠️ 澄清：“API 转发 / API 代理” ≠ “网络代理”Clarification: “API Forwarding / API Proxy” ≠ “Network Proxy”
 **ZH**
 有些用户担心本项目因“代理”字样是否违反 Cloudflare 服务条款，这里做一个清晰的技术澄清：
