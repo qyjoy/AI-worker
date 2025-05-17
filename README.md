@@ -28,16 +28,13 @@
 *   Provide a simple, customizable HTML interface for interacting with the AI.
 *   Leverage Cloudflare's global network for potentially lower latency and high scalability.
 ![v4a](https://github.com/user-attachments/assets/8600405c-ca7b-42d8-8f3f-1bfb7aee0252)
-
 <br>Before: Your area > Not allow to access > AI ×
 <br>Now : Your area > Cloudflare Worker > AI √
-
 **ZH:** 此Cloudflare Worker项目充当Google生成式AI API（Gemini用于文本生成，Imagen用于图像生成）的安全高效代理。它允许您：
 *   从任何地方访问Google强大的AI模型，包括那些可能难以直接访问的地区。
 *   使用Cloudflare的环境变量安全地管理您的Google AI API密钥，避免其暴露在客户端代码中。
 *   提供一个简单、可定制的HTML界面与AI进行交互。
 *   利用Cloudflare的全球网络实现潜在的低延迟和高可扩展性。
-
 ## 🎈 Features | 功能
 ![1](https://github.com/user-attachments/assets/93bd0528-1288-4ee9-8607-28a08a2e8d4e)
 *   **🤖 Proxy AI Requests / 代理AI请求:**
