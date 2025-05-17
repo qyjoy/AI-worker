@@ -143,6 +143,10 @@ Your AI proxy should now be live at the URL provided by Cloudflare (e.g., `your-
 *   **HTML & CSS:** Modify `html-renderer.js` to change the look and feel of the front-end.
 *   **Models:** Update the `allowedModels` array in `api-handler.js` if new Gemini/Imagen models are released or if you want to restrict options.
 *   **Themes:** Add or modify themes in the `themeConfig` object within the client-side script in `html-renderer.js`.
+### 🔄 贡献指南
+请基于 `discover` 分支开发您的功能并提交 Pull Request。
+会定期从 `discover` 中精选高质量的更改合并进 `main`。
+
 ### ⚠️ 澄清：“API 转发 / API 代理” ≠ “网络代理”Clarification: “API Forwarding / API Proxy” ≠ “Network Proxy”
 **ZH**
 有些用户担心本项目因“代理”字样是否违反 Cloudflare 服务条款，这里做一个清晰的技术澄清：
