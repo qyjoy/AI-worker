@@ -21,7 +21,7 @@
 </p>
 
 ## 🌐 Overview | 概述
-<a><img src="https://cf-assets.www.cloudflare.com/zkvhlag99gkb/4CNamrq69wPhKeFeFQBNe4/b65099939b3140c3cf947898ffea271f/Workers-diagram-MVP--copy-3_3x-8--1-.png" alt="Cloudflare Workers" width="700"/></a>
+<a><img src="https://cf-assets.www.cloudflare.com/zkvhlag99gkb/4CNamrq69wPhKeFeFQBNe4/b65099939b3140c3cf947898ffea271f/Workers-diagram-MVP--copy-3_3x-8--1-.png" alt="Cloudflare Workers" width="700"/></a><br>
 **EN:** This Cloudflare Worker acts as a secure and efficient proxy for Google's Generative AI APIs (Gemini for text generation, Imagen for image generation). It allows you to:
 *   Access Google's powerful AI models from anywhere, including regions where direct access might be challenging.
 *   Securely manage your Google AI API key using Cloudflare's environment variables, keeping it out of client-side code.
