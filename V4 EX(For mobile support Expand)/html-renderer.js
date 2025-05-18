@@ -15,23 +15,22 @@ const getStyles = () => `
   --user-text-rgb: 255, 255, 255;
   --ai-text-rgb: 255, 255, 255;
   --link-text-rgb: 199, 210, 254;
-  --theme-primary-rgb: 29, 78, 216; /* default */
+  --theme-primary-rgb: 29, 78, 216; 
   --table-hover-rgb: 74, 85, 104;
   --input-border-rgb: 55, 65, 81;
   --table-border-rgb: 55, 65, 81;
   --table-header-rgb: 30, 41, 59;
-  --input-bar-bg-rgb: 17, 24, 39; /* Default for input bar */
+  --input-bar-bg-rgb: 17, 24, 39; 
 }
-html, body { height: 100%; margin: 0; padding: 0; overflow-x: hidden; }
+html, body { height: 100vh;margin: 0; padding: 0; overflow: hidden;}
 body {background: url('https://img.picui.cn/free/2025/05/17/6828a34e93555.png') no-repeat center center fixed;background-size: cover; display: flex; flex-direction: column;}
 // https://www.sensecore.cn/upload/20230330/crjfafitbja7qufwrt.jpg
 .main-content-area {backdrop-filter: blur(2px); flex-grow: 1; display: flex; flex-direction: column; width: 100%; overflow: hidden;}
-#chat-container { flex-grow: 1; overflow-y: auto; padding: 1rem; scrollbar-width: thin; scrollbar-color: #4b5563 #374151; }
+#chat-container { flex: 1 1 auto; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #4b5563 #374151; padding: 0.5rem 1rem; height: calc(100vh - 170px); }
 #chat > div {background-color: rgba(var(--user-message-rgb), 0.8);}
 .ai-message {  background-color: rgba(var(--ai-message-rgb), 0.8);}
 
-/* Input bar related styles */
-#prompt, #sendBtn, #clearChatBtn, #settingsBtn, #fileUploadBtn, #customApiKey, #saveApiKeyBtn, select {  background-color: rgba(var(--input-bg-rgb), 0.5)!important; border-color: rgba(var(--input-border-rgb), 0.7) !important;}
+#prompt, #sendBtn, #clearChatBtn, #settingsBtn, #fileUploadBtn, #customApiKey, #saveApiKeyBtn, #setBgBtn, select {  background-color: rgba(var(--input-bg-rgb), 0.5)!important; border-color: rgba(var(--input-border-rgb), 0.7) !important;}
 #sendBtn:hover {  background-color: rgba(var(--theme-primary-rgb), 0.6)!important;}
 .input-bar-container {
   position: fixed;
@@ -45,24 +44,25 @@ body {background: url('https://img.picui.cn/free/2025/05/17/6828a34e93555.png') 
   border-top: 1px solid rgba(var(--input-border-rgb), 0.7);
   display: flex;
   flex-direction: column;
+  box-shadow: 0 -2px 1px rgba(0,0,0,0.1);
 }
 .user-message {
   background-color: rgba(var(--user-message-rgb), 0.8)!important;
   color: rgba(var(--user-text-rgb), 0.9)!important;
   align-self: flex-end;
-  margin-left: 10%;
+  margin-left: 3%;
   border: 1px solid rgba(var(--user-message-rgb), 0.9);
-  position: relative; /* For pencil button */
+  position: relative; 
 }
 .ai-message {
   background-color: rgba(var(--ai-message-rgb), 0.8)!important;
   color: rgba(var(--ai-text-rgb), 0.9)!important;
   align-self: flex-start;
-  margin-right: 10%;
+  margin-right: 2%;
   white-space: pre-wrap;
   border: 1px solid rgba(var(--ai-message-rgb), 0.9);
 }
-#chat > div { margin-bottom: 1rem; padding: 0.75rem; border-radius: 0.5rem; max-width: 90%; word-break: break-word; line-height: 1.6; }
+#chat > div { margin-bottom: 0.2rem; padding: 0.25rem; border-radius: 0.5rem; max-width: 95%; word-break: break-word; line-height: 1.6; }
 .ai-message > strong::before {content: "";display: inline-block;width: 20px;height: 20px;background-image: url('https://www.gstatic.com/lamda/images/sparkle_resting_v2_1ff6f6a71f2d298b1a31.gif');background-size: contain;background-repeat: no-repeat;margin-right: 8px;vertical-align: middle;}
 
 .text-3xl{background:linear-gradient(90deg,red,orange,yellow,green,blue,purple,red);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:500% auto;animation:rainbow 10s linear infinite}@keyframes rainbow{0%{background-position:0}100%{background-position:500%}}
@@ -70,9 +70,19 @@ body {background: url('https://img.picui.cn/free/2025/05/17/6828a34e93555.png') 
 .thinking{animation:textGlow 1.5s ease-in-out infinite;color:#a78bfa!important;font:italic bold 1.2em sans-serif}
 @keyframes icon2DRotate {0% { opacity: 0; transform: scale(0) rotateY(0deg); } 10% { opacity: 1; transform: scale(3) rotateY(0deg); } 50% { transform: scale(3) rotateY(180deg); } 90% { transform: scale(3) rotateY(350deg); } 100% { opacity: 0; transform: scale(0) rotateY(360deg); }}
 .thinking-icon {position: fixed; top: 40%; left: 50%;width: 80px; height: 80px; margin: -40px 0 0 -40px;pointer-events: none;animation: icon2DRotate 6s ease-in-out forwards;transform-origin: center center;transform-style: preserve-3d;filter: drop-shadow(0 0 25px #dba0ff) brightness(1.5) saturate(1.8);z-index: 9999;}
-
+@media (min-width: 768px) {
+  #chat > div {
+    max-width: min(95%, 1200px); 
+    padding: 1rem 1.25rem;
+  }
+  
+  .user-message, .ai-message {
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+}
 .ai-message .response-content p { margin-bottom: 0.5em; }
-.ai-message .response-content ul, .ai-message .response-content ol { margin-left: 1.5em; margin-bottom: 0.5em; }
+.ai-message .response-content ul, .ai-message .response-content ol { margin-left: 0.5em; margin-bottom: 0.5em; }
 .ai-message .response-content li { margin-bottom: 0.25em; }
 .ai-message img.generated-image { display: block; max-width: 100%; max-height: 300px; height: auto; margin-top: 0.75rem; border-radius: 0.375rem; background-color: #4b5563; }
 .ai-message strong, .user-message strong { display: block; margin-bottom: 0.25rem; font-weight: bold; color: #9ca3af; }
@@ -80,7 +90,7 @@ body {background: url('https://img.picui.cn/free/2025/05/17/6828a34e93555.png') 
 .error-message { background-color: rgba(var(--error-message-rgb), 0.8) !important; color: white !important; }
 .loader { border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; display: inline-block; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-textarea#prompt { scrollbar-width: thin; scrollbar-color: #4b5563 #374151; min-height: 42px; /* Match button height */ line-height: 1.5; resize: none;} /* Allow vertical resize by user if needed, but auto-grows */
+textarea#prompt { scrollbar-width: thin; scrollbar-color: #4b5563 #374151; min-height: 42px; /* Match button height */ line-height: 1.5; resize: none;} 
 @keyframes breathe{0%{color:white;text-shadow:0 0 8px rgba(255,255,255,0.7);}50%{color:#22d3ee;text-shadow:0 0 12px rgba(34,211,238,0.9);}100%{color:white;text-shadow:0 0 8px rgba(255,255,255,0.7);}}.animate-breathe{animation:breathe 3s ease-in-out infinite;}
 
 .ai-message table {
@@ -141,11 +151,11 @@ textarea#prompt { scrollbar-width: thin; scrollbar-color: #4b5563 #374151; min-h
   padding: 2px 8px;
   border-radius: 12px;
   font-size: 0.8em;
-  margin-right: 5px;
-  margin-bottom: 5px;
+  margin-right: 3px;
+  margin-bottom: 3px;
 }
 .file-preview-badge .remove-file {
-  margin-left: 5px;
+  margin-left: 3px;
   cursor: pointer;
   font-weight: bold;
 }
@@ -153,66 +163,99 @@ textarea#prompt { scrollbar-width: thin; scrollbar-color: #4b5563 #374151; min-h
 #filePreviews { box-shadow: none !important; border: none !important; }
 #filePreviews.has-files { box-shadow: none !important; border: none !important; }
 .video-preview-badge {display: inline-block;background-color: rgba(var(--theme-primary-rgb), 0.6);color: white;padding: 2px 8px;border-radius: 12px;font-size: 0.8em;margin-right: 5px;margin-bottom: 5px;}
+
 /* Rainbow Theme Specifics */
 @keyframes rainbowBreath {
-    0% { filter: hue-rotate(0deg); opacity: 0.8; }
-    50% { filter: hue-rotate(180deg); opacity: 0.95; }
-    100% { filter: hue-rotate(360deg); opacity: 0.8; }
+    0% { background-position: 0% 50%; filter: hue-rotate(0deg); opacity: 0.8; }
+    50% { background-position: 100% 50%; filter: hue-rotate(180deg); opacity: 0.95; }
+    100% { background-position: 0% 50%; filter: hue-rotate(360deg); opacity: 0.8; }
 }
-/* .rainbow-theme-bg { 
-   animation: rainbowBreath 20s ease-in-out infinite;
-   background: linear-gradient(45deg,
-     rgba(209, 255, 2, 0.5) 0%, rgba(255,0,0,0.5) 15%, rgba(255,165,0,0.5) 30%,
-     rgba(255,255,0,0.5) 45%, rgba(0,255,0,0.5) 60%, rgba(0,0,255,0.5) 75%,
-     rgba(75,0,130,0.5) 90%, rgba(255,211,255,0.5) 100%);
-   background-size: 300% 300%;
-} */
-/* Chat bubbles specifically for rainbow theme */
-.user-message.rainbow-theme-bubble {
-  background-color: rgba(var(--user-message-rgb), 0.85) !important; /* Uses rainbow's user color via CSS var */
-  border-color: rgba(255,255,255,0.5) !important;
-  /* Optionally, a very slow border hue rotate or shadow effect for rainbow */
-}
-.ai-message.rainbow-theme-bubble {
-  background-color: rgba(var(--ai-message-rgb), 0.5) !important; /* Uses rainbow's AI color via CSS var */
-  border-color: rgba(255,255,255,0.5)!important;
-}
-.rainbow-theme-bubble.ai-message {
-  animation: rainbowBreath 8s linear infinite !important;
-  background: linear-gradient(45deg, 
-    rgba(255, 211, 255, 0.5) 0%, rgba(255,165,0,0.5) 20%,
-    rgba(255,255,0,0.5) 40%, rgba(0,255,0,0.5) 60%,
-    rgba(0,0,255,0.5) 80%, rgba(148,0,211,0.5) 100%) !important;
-  background-size: 300% 300% !important;
-}
-/* Ensure the main rainbow-theme-bg class is strong enough and remove duplicate */
+
+/* Main content area subtle rainbow background */
 .rainbow-theme-bg {
   animation: rainbowBreath 20s ease-in-out infinite !important;
-  background: linear-gradient(45deg, rgba(105,25,205,0.0) 0%, rgba(255,0,0,0.0) 15%, rgba(255,165,0,0) 30%, rgba(255,255,0,0) 45%, rgba(0,255,0,0) 60%, rgba(0,0,255,0) 75%, rgba(75,0,130,0) 90%, rgba(255,211,255,0) 100%) !important;
+  background: linear-gradient(45deg, rgba(105,25,205,0.05) 0%, rgba(255,0,0,0.05) 15%, rgba(255,165,0,0.05) 30%, rgba(255,255,0,0.05) 45%, rgba(0,255,0,0.05) 60%, rgba(0,0,255,0.05) 75%, rgba(75,0,130,0.05) 90%, rgba(255,211,255,0.05) 100%) !important;
   background-size: 300% 300% !important;
 }
 
-/* Ensure input bar buttons are visible on rainbow */
-.rainbow-theme-bg #prompt, 
-.rainbow-theme-bg #sendBtn, 
-.rainbow-theme-bg #clearChatBtn, 
-.rainbow-theme-bg #settingsBtn,
-.rainbow-theme-bg #fileUploadBtn,
-.rainbow-theme-bg #customApiKey,
-.rainbow-theme-bg #saveApiKeyBtn,
-.rainbow-theme-bg select {
-    background-color: rgba(var(--input-bg-rgb), 0.7) !important; /* Slightly more opaque */
-    border-color: rgba(255,255,255,0.6) !important;
-    color: white; /* Ensure text is visible */
-}
-.rainbow-theme-bg #sendBtn:hover {
-    background-color: rgba(var(--theme-primary-rgb), 0.8) !important;
+/* Chat bubbles for rainbow theme */
+.user-message.rainbow-theme-bubble {
+  border-color: rgba(255,255,255,0.5) !important;
+  animation: rainbowBreath 9s linear infinite !important; 
+  background: linear-gradient(60deg, 
+    rgba(0,0,255,0.5) 0%,      /* Blue */
+    rgba(75,0,130,0.5) 20%,   /* Indigo */
+    rgba(255,0,0,0.5) 40%,    /* Red */
+    rgba(255,165,0,0.5) 60%, /* Orange */
+    rgba(255,255,0,0.5) 80%, /* Yellow */
+    rgba(0,255,0,0.5) 100%   /* Green */
+  ) !important;
+  background-size: 300% 300% !important;
+  color: white !important; 
 }
 
+.ai-message.rainbow-theme-bubble {
+  border-color: rgba(255,255,255,0.5)!important;
+  animation: rainbowBreath 8s linear infinite !important;
+  background: linear-gradient(45deg, 
+    rgba(255, 211, 255, 0.5) 0%, /* Pinkish */
+    rgba(255,165,0,0.5) 20%,   /* Orange */
+    rgba(255,255,0,0.5) 40%,   /* Yellow */
+    rgba(0,255,0,0.5) 60%,     /* Green */
+    rgba(0,0,255,0.5) 80%,     /* Blue */
+    rgba(148,0,211,0.5) 100%   /* Violet */
+  ) !important;
+  background-size: 300% 300% !important;
+  color: white !important; 
+}
+
+.input-bar-container.rainbow-active #prompt,
+.input-bar-container.rainbow-active #sendBtn,
+.input-bar-container.rainbow-active #clearChatBtn,
+.input-bar-container.rainbow-active #settingsBtn,
+.input-bar-container.rainbow-active #fileUploadBtn,
+.input-bar-container.rainbow-active #customApiKey,
+.input-bar-container.rainbow-active #saveApiKeyBtn,
+.input-bar-container.rainbow-active #setBgBtn,
+.input-bar-container.rainbow-active select,
+.input-bar-container.rainbow-active #filePreviews .file-preview-badge,
+.input-bar-container.rainbow-active #filePreviews .video-preview-badge {
+    animation: rainbowBreath 8s linear infinite !important;
+    background: linear-gradient(45deg,
+      rgba(255, 211, 255, 0.7) 0%, /* Pinkish */
+      rgba(255,165,0,0.7) 15%,    /* Orange */
+      rgba(255,255,0,0.7) 30%,    /* Yellow */
+      rgba(0,255,0,0.7) 45%,      /* Green */
+      rgba(0,0,255,0.7) 60%,      /* Blue */
+      rgba(75,0,130,0.7) 75%,     /* Indigo */
+      rgba(148,0,211,0.7) 90%,    /* Purple */
+      rgba(255,211,255,0.7) 100% /* Loop back to Pinkish for smooth transition */
+    ) !important;
+    background-size: 300% 300% !important;
+    border-color: rgba(255,255,255,0.6) !important;
+    color: white !important; /* Ensure text is visible */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3); 
+}
+
+/* Hover effects for the buttons in the rainbow theme */
+.input-bar-container.rainbow-active #sendBtn:hover,
+.input-bar-container.rainbow-active #clearChatBtn:hover,
+.input-bar-container.rainbow-active #settingsBtn:hover,
+.input-bar-container.rainbow-active #fileUploadBtn:hover,
+.input-bar-container.rainbow-active #saveApiKeyBtn:hover,
+.input-bar-container.rainbow-active #setBgBtn:hover {
+    filter: brightness(1.2) saturate(1.2); 
+    box-shadow: 0 0 10px rgba(255,255,255,0.4);
+}
+
+.input-bar-container.rainbow-active #prompt::placeholder,
+.input-bar-container.rainbow-active #customApiKey::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+    opacity: 1; 
+}
 </style>
 `;
 
-// Client-side JavaScript
 const getClientScript = () => `
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -223,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
      primary: '255,150,200', userText: '255,240,245', aiText: '255,230,240', linkText: '255,180,220',
      inputBar: '30,20,30'
    },
-    default: {
+    blue: { 
       bg: '20,42,58', user: '30,144,200', ai: '50,110,140', input: '40,100,130', table: '35,90,120', 
       tableHeader: '30,41,59', tableHover: '74,85,104', tableBorder: '55,65,81', error: '185,28,28',      
       primary: '0,150,200', userText: '240,250,255', aiText: '230,240,250', linkText: '160,220,255',
@@ -259,25 +302,24 @@ document.addEventListener('DOMContentLoaded', () => {
       primary: '0,255,255', userText: '255,255,255', aiText: '255,215,0', linkText: '255,20,147',
       inputBar: '5,5,20'
     },
-    rainbow: { /* Colors for elements when rainbow BG is active */
-      bg: '20,20,20', /* Darker base for content readability over animated BG */
+    rainbow: { 
+      bg: '20,20,20', 
       user: '255,0,0', ai: '0,255,0', input: '0,0,255', table: '255,255,0',
       tableHeader: '255,0,255', tableHover: '0,255,255', tableBorder: '255,165,0',
       error: '255,0,122', primary: '148,0,211', userText: '250,250,250',
       aiText: '250,250,250', linkText: '255,255,255',
-      inputBar: '15,15,15' /* Input bar gets its own animated BG, but variables still useful */
+      inputBar: '15,15,15' 
     },
     red: {
       bg: '255,245,245', user: '255,100,100', ai: '255,150,150', input: '255,200,200', table: '255,230,230',
       tableHeader: '255,180,180', tableHover: '255,210,210', tableBorder: '255,160,160', error: '255,50,50',
       primary: '255,80,80', userText: '50,0,0', aiText: '60,0,0', linkText: '220,0,0', inputBar: '255,235,235'
     },
-    yellow: {
+    yellow: { 
       bg: '50,40,5', user: '255,215,50', ai: '240,200,40', input: '200,180,40', table: '150,130,30',
       tableHeader: '170,150,35', tableHover: '230,210,80', tableBorder: '200,180,40', error: '255,100,0',
       primary: '255,190,0', userText: '40,30,0', aiText: '40,30,0', linkText: '255,165,0',
-       aiText: '250,250,250', linkText: '255,255,255',
-       inputBar: '15,15,15' /* Input bar gets its own animated BG, but variables still useful */
+      inputBar: '40,35,10' 
      }
   };
   const themeSelect = document.getElementById('theme');
@@ -285,13 +327,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const inputBarContainer = document.querySelector('.input-bar-container');
 
   function applyTheme(themeName) {
-    const theme = themeConfig[themeName] || themeConfig.default;
+    const theme = themeConfig[themeName] || themeConfig.blue; // Fallback to blue (was default)
     const root = document.documentElement;
     root.style.setProperty('--theme-bg-rgb', theme.bg);
-    root.style.setProperty('--table-hover-rgb', theme.tableHover || themeConfig.default.tableHover);
-    root.style.setProperty('--table-border-rgb', theme.tableBorder || themeConfig.default.tableBorder);
+    root.style.setProperty('--table-hover-rgb', theme.tableHover || themeConfig.blue.tableHover);
+    root.style.setProperty('--table-border-rgb', theme.tableBorder || themeConfig.blue.tableBorder);
     root.style.setProperty('--input-border-rgb', theme.input);
-    root.style.setProperty('--table-header-rgb', theme.tableHeader || themeConfig.default.tableHeader);
+    root.style.setProperty('--table-header-rgb', theme.tableHeader || themeConfig.blue.tableHeader);
     root.style.setProperty('--user-message-rgb', theme.user);
     root.style.setProperty('--ai-message-rgb', theme.ai);
     root.style.setProperty('--input-bg-rgb', theme.input);
@@ -301,37 +343,83 @@ document.addEventListener('DOMContentLoaded', () => {
     root.style.setProperty('--user-text-rgb', theme.userText);
     root.style.setProperty('--ai-text-rgb', theme.aiText);
     root.style.setProperty('--link-text-rgb', theme.linkText);
-    root.style.setProperty('--input-bar-bg-rgb', theme.inputBar || themeConfig.default.inputBar);
+    root.style.setProperty('--input-bar-bg-rgb', theme.inputBar || themeConfig.blue.inputBar);
 
     const isCyberpunk = themeName === 'cyberpunk';
-    document.querySelectorAll('select, #sendBtn, #clearChatBtn, #settingsBtn, #fileUploadBtn, #customApiKey, #saveApiKeyBtn').forEach(el => {
-      el.style.borderColor = isCyberpunk ? 'rgba(0,255,187,0.8)' : 'rgba(' + getComputedStyle(root).getPropertyValue('--input-border-rgb') + ',0.7)';
-      el.style.backgroundColor = isCyberpunk ? 'rgba(28,28,40,0.9)' : 'rgba(' + getComputedStyle(root).getPropertyValue('--input-bg-rgb') + ',0.5)';
+    const allInteractiveElements = document.querySelectorAll('select, #prompt, #sendBtn, #clearChatBtn, #settingsBtn, #fileUploadBtn, #customApiKey, #saveApiKeyBtn, #setBgBtn');
+
+    allInteractiveElements.forEach(el => {
+      // Clear any inline styles first, to let CSS classes take precedence or apply new theme's styles
+      el.style.borderColor = '';
+      el.style.backgroundColor = '';
+
+      if (themeName === 'rainbow') {
+      } else if (isCyberpunk) {
+        el.style.borderColor = 'rgba(0,255,187,0.8)';
+        el.style.backgroundColor = 'rgba(28,28,40,0.9)';
+        // Ensure text color for cyberpunk if not covered by general styles
+        if (el.tagName === 'SELECT' || el.id === 'prompt' || el.id === 'customApiKey') {
+            el.style.color = 'white'; 
+        }
+      } else { // Other themes (blue, pink, etc.)
+        el.style.borderColor = 'rgba(' + getComputedStyle(root).getPropertyValue('--input-border-rgb') + ',0.7)';
+        el.style.backgroundColor = 'rgba(' + getComputedStyle(root).getPropertyValue('--input-bg-rgb') + ',0.5)';
+        // Ensure text color for other themes if not covered (usually white by default)
+         if (el.tagName === 'SELECT' || el.id === 'prompt' || el.id === 'customApiKey') {
+            el.style.color = 'rgba(' + getComputedStyle(root).getPropertyValue('--user-text-rgb') + ',0.9)';
+        }
+      }
     });
-    
-    document.querySelector('.main-content-area').classList.remove('rainbow-theme-bg'); 
-    if (inputBarContainer) inputBarContainer.classList.toggle('rainbow-theme-bg', themeName === 'rainbow');
+
+    if (mainContentArea) {
+        mainContentArea.classList.toggle('rainbow-theme-bg', themeName === 'rainbow');
+    }
+    document.body.classList.remove('rainbow-theme-active'); 
+    if (inputBarContainer) {
+      inputBarContainer.classList.toggle('rainbow-active', themeName === 'rainbow');
+    }
     document.querySelectorAll('#chat > div').forEach(el => {
-        el.style.backgroundColor = '';
+        el.style.backgroundColor = ''; 
         if (themeName === 'rainbow') {
             el.classList.add('rainbow-theme-bubble');
          } else {
             el.classList.remove('rainbow-theme-bubble');
+            // Reapply theme-specific bubble colors if not rainbow
+            if (el.classList.contains('user-message')) {
+                el.style.backgroundColor = 'rgba(' + getComputedStyle(root).getPropertyValue('--user-message-rgb') + ',0.8)';
+            } else if (el.classList.contains('ai-message')) {
+                 el.style.backgroundColor = 'rgba(' + getComputedStyle(root).getPropertyValue('--ai-message-rgb') + ',0.8)';
+            }
          }
-        
     });
   }
 
   function initTheme() {
+    themeSelect.value = 'rainbow'; 
+    applyTheme('rainbow'); 
+
     themeSelect.addEventListener('change', (e) => {
       applyTheme(e.target.value);
+      adjustMainContentPadding();
       const currentScroll = chatContainer.scrollTop;
       setTimeout(() => chatContainer.scrollTop = currentScroll, 0);
     });
-    applyTheme(themeSelect.value); 
+    applyTheme('rainbow'); 
+    adjustMainContentPadding();
   }
   initTheme();
-
+  function adjustMainContentPadding() {
+    const inputBar = document.querySelector('.input-bar-container');
+    const mainArea = document.querySelector('.main-content-area');
+    const filePreviews = document.getElementById('filePreviews');
+    if (inputBar && mainArea) {
+        const inputBarHeight = inputBar.offsetHeight;
+        mainArea.style.paddingBottom = \`\${inputBarHeight}px\`;
+        if (filePreviews) { // Adjust file previews to sit above the input bar
+            filePreviews.style.bottom = \`\${inputBarHeight + 1}px\`; 
+        }
+    }
+  }
   "use strict";
   console.log("DOM fully loaded and parsed.");
   const chat = document.getElementById('chat');
@@ -374,6 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
   settingsBtn.addEventListener('click', () => {
     apiKeyControls.classList.toggle('hidden');
     adjustInputBarLayout();
+    setTimeout(adjustMainContentPadding, 50);
   });
 
   saveApiKeyBtn.addEventListener('click', () => {
@@ -387,6 +476,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     apiKeyControls.classList.add('hidden');
     adjustInputBarLayout();
+    setTimeout(adjustMainContentPadding, 50);
       });
 
   setBgBtn.addEventListener('click', () => {
@@ -404,12 +494,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const bgData = {
          type: 'image',
           imageData: e.target.result,
-          expiry: new Date().getTime() + (24 * 60 * 60 * 1000) // This was the end of the bgData object
-        }; // Closing brace for bgData object
-        localStorage.setItem('customBackgroundData', JSON.stringify(bgData)); // Added missing localStorage call
-      }; // This properly closes the reader.onload callback for image files
-      reader.readAsDataURL(file); // This call is now correctly placed *after* reader.onload is defined
-    } else if (file && file.type.startsWith('video/')) { // The '}' now correctly closes the 'if' block for image files
+          expiry: new Date().getTime() + (24 * 60 * 60 * 1000) 
+        }; 
+        localStorage.setItem('customBackgroundData', JSON.stringify(bgData)); 
+      }; 
+      reader.readAsDataURL(file); 
+    } else if (file && file.type.startsWith('video/')) { 
       const reader = new FileReader();
       reader.onload = (e) => {
         document.body.style.backgroundImage = 'none'; 
@@ -425,8 +515,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const bgData = {
           type: 'video',
           videoData: e.target.result,
-          videoDataUrl: e.target.result, // Store the data URL
-          videoMimeType: file.type,    // Store the MIME type
+          videoDataUrl: e.target.result, 
+          videoMimeType: file.type,    
          expiry: new Date().getTime() + (24 * 60 * 60 * 1000)
         };
         localStorage.setItem('customBackgroundData', JSON.stringify(bgData));
@@ -435,7 +525,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (file) {
       alert('Please select a valid image file.');
     }
-    bgFileInput.value = ''; // Reset file input
+    bgFileInput.value = ''; 
   });
   
   clearChatBtn.addEventListener('click', () => {
@@ -460,7 +550,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const reader = new FileReader();
         reader.onload = (e) => {
             const base64Data = e.target.result.split(',')[1];
-            if (uploadedFiles.length < 5) { // Limit number of files
+            if (uploadedFiles.length < 5) { 
                  uploadedFiles.push({
                     name: file.name,
                     mimeType: file.type,
@@ -473,7 +563,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         reader.readAsDataURL(file);
     });
-    fileInput.value = ''; // Reset file input
+    fileInput.value = ''; 
   });
 
   function renderFilePreviews() {
@@ -500,13 +590,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const isApiInputVisible = !apiKeyControls.classList.contains('hidden');
     if (isApiInputVisible) {
         sendBtn.classList.remove('flex-grow');
-        sendBtn.style.width = 'auto'; // Allow to shrink
+        sendBtn.style.width = 'auto'; 
     } else {
         sendBtn.classList.add('flex-grow');
-        sendBtn.style.width = ''; // Reset to allow flex-grow to work
+        sendBtn.style.width = ''; 
     }
   }
-  adjustInputBarLayout(); // Initial call
+  adjustInputBarLayout(); 
 
 
   function setLoadingState(isLoading) {
@@ -529,7 +619,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function spawnThinkingIcon() {
     let icon = document.querySelector('.thinking-icon');
-    if (icon) icon.remove(); // Remove existing one first
+    if (icon) icon.remove(); 
 
     icon = document.createElement('img');
     icon.src = 'https://i.ibb.co/ch21FSqt/cf.png';
@@ -544,6 +634,12 @@ document.addEventListener('DOMContentLoaded', () => {
       let messageDiv = document.createElement('div');
       messageDiv.classList.add(sender === 'user' ? 'user-message' : 'ai-message');
       if (messageId) messageDiv.id = messageId;
+
+      // Apply rainbow bubble class if rainbow theme is active
+      if (inputBarContainer && inputBarContainer.classList.contains('rainbow-active')) {
+          messageDiv.classList.add('rainbow-theme-bubble');
+      }
+
 
       const senderStrong = document.createElement('strong');
       senderStrong.textContent = sender === 'user' ? '你:' : 'AI:';
@@ -561,7 +657,6 @@ document.addEventListener('DOMContentLoaded', () => {
         spawnThinkingIcon();
       } else {
         if (sender === 'user') {
-          // User message can be text or array of parts (text + files)
           if (typeof textOrParts === 'string') {
             contentSpan.textContent = textOrParts;
           } else if (Array.isArray(textOrParts)) {
@@ -576,9 +671,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 img.alt = 'Uploaded image';
                 img.style.maxWidth = '200px'; img.style.maxHeight = '200px'; img.style.borderRadius = '0.375rem'; img.style.marginTop = '0.5rem';
                 contentSpan.appendChild(img);
-              } else if (part.file_data) { // This is for display, not actual API structure
+              } else if (part.file_data) { 
                 const p = document.createElement('p');
-                p.textContent = '[File: ' + part.file_data.file_name + ']'; // Simple display
+                p.textContent = '[File: ' + part.file_data.file_name + ']'; 
                 contentSpan.appendChild(p);
               }
             });
@@ -588,7 +683,6 @@ document.addEventListener('DOMContentLoaded', () => {
           pencilBtn.className = 'edit-prompt-btn';
           pencilBtn.title = 'Edit this prompt';
           pencilBtn.onclick = function() {
-            // For simplicity, we take the first text part. Complex edits might need more.
             let promptTextToEdit = '';
             if (typeof textOrParts === 'string') {
                 promptTextToEdit = textOrParts;
@@ -598,8 +692,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             promptTextarea.value = promptTextToEdit;
             promptTextarea.focus();
-            // Optionally, remove this message and its corresponding AI response from history and UI
-            // For now, it just populates for resending.
           };
           messageDiv.appendChild(pencilBtn);
 
@@ -614,19 +706,24 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       chat.appendChild(messageDiv);
       scrollToBottom();
+      chatContainer.scrollTop = chatContainer.scrollHeight;
       return messageDiv;
     } catch (e) { console.error("Error executing addMessage:", e); return null; }
   }
   
   addMessage("你好!请选择一个模型并输入任意问题😀<br><br>Hi! Get started by selecting any models and input whatever you want!", 'ai', false, 'initial-greeting');
 
-
-  function scrollToBottom() {
-     try {
-        if (chatContainer) { chatContainer.scrollTop = chatContainer.scrollHeight; }
-        else { console.error("Error scrolling: chatContainer not found."); }
-     } catch (e) { console.error("Error executing scrollToBottom:", e); }
-  }
+function scrollToBottom() {
+  try {
+    if (chatContainer) { 
+      // 添加平滑滚动效果
+      chatContainer.scrollTo({
+        top: chatContainer.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
+  } catch (e) { console.error("Error scrolling:", e); }
+}
 
   function escapeHTML(str) { 
     if (typeof str !== 'string') return '';
@@ -638,14 +735,14 @@ document.addEventListener('DOMContentLoaded', () => {
   function autoResizeTextarea() {
     try {
         if (promptTextarea) {
-            promptTextarea.style.height = 'auto'; // Reset height
+            promptTextarea.style.height = 'auto'; 
             let newHeight = promptTextarea.scrollHeight;
-            const maxHeight = 200; // Max height 200px
+            const maxHeight = 200; 
             if (newHeight > maxHeight) {
                 newHeight = maxHeight;
-                promptTextarea.style.overflowY = 'auto'; // Show scrollbar if max height reached
+                promptTextarea.style.overflowY = 'auto'; 
             } else {
-                promptTextarea.style.overflowY = 'hidden'; // Hide scrollbar if not needed
+                promptTextarea.style.overflowY = 'hidden'; 
             }
             promptTextarea.style.height = newHeight + 'px';
         } else { console.error("Error resizing textarea: promptTextarea not found.");}
@@ -672,13 +769,11 @@ document.addEventListener('DOMContentLoaded', () => {
         userMessageParts.push({ text: promptText });
       }
       uploadedFiles.forEach(file => {
-        // This structure is for display in addMessage, API structure is different
         userMessageParts.push({ inline_data: { mime_type: file.mimeType, data: file.base64Data }, file_data: { file_name: file.name } });
       });
       
       addMessage(userMessageParts.length > 0 ? userMessageParts : promptText, 'user');
       
-      // Add to conversation history for API
       const currentTurnUserParts = [];
       if (promptText) {
         currentTurnUserParts.push({ text: promptText });
@@ -689,7 +784,7 @@ document.addEventListener('DOMContentLoaded', () => {
       conversationHistory.push({ role: "user", parts: currentTurnUserParts });
 
       promptTextarea.value = '';
-      uploadedFiles = []; // Clear after sending
+      uploadedFiles = []; 
       renderFilePreviews();
       autoResizeTextarea();
       
@@ -700,10 +795,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!responseContentSpan) { throw new Error("Failed to find response content span in AI placeholder."); }
 
       const requestPayload = {
-          prompt: promptText, // Keep for basic logging on server if needed, but history is primary
+          prompt: promptText, 
           model: model,
-          history: conversationHistory.slice(0, -1), // Send history *before* current turn
-          currentTurnParts: currentTurnUserParts // Send current turn parts separately for clarity
+          history: conversationHistory.slice(0, -1), 
+          currentTurnParts: currentTurnUserParts 
       };
       
       const customKey = localStorage.getItem('customGeminiApiKey');
@@ -728,7 +823,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (responseContentSpan && aiMessageDiv) {
             responseContentSpan.textContent = "请求出错 (" + res.status + "): " + escapeHTML(errorText.substring(0, 500)) + (errorText.length > 500 ? '...' : '');
             aiMessageDiv.classList.add('error-message');
-            conversationHistory.pop(); // Remove failed user turn from history
+            conversationHistory.pop(); 
             scrollToBottom();
         } else { console.error("Cannot display fetch error in chat: message elements not found."); }
         throw new Error("Server responded with status " + res.status);
@@ -744,7 +839,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const { done, value } = await reader.read();
           if (done) { console.log("SSE stream finished."); break; }
           buffer += decoder.decode(value, { stream: true });
-          const lines = buffer.split('\\n'); // Gemini uses \n
+          const lines = buffer.split('\\n'); 
           buffer = lines.pop(); 
           for (const line of lines) {
               if (line.startsWith('data: ')) {
@@ -808,10 +903,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (currentText) {
         conversationHistory.push({ role: "model", parts: [{ text: currentText }] });
       } else if (aiMessageDiv.classList.contains('error-message')) {
-         // If an error message was displayed and no actual content came, don't add an empty model message
       } else {
-        // If stream ended with no text and no error, add an empty part to signify model responded.
-        // Or handle as appropriate (e.g. "No response from AI")
         responseContentSpan.textContent = "[AI did not provide a text response]";
         conversationHistory.push({ role: "model", parts: [{ text: "" }] });
       }
@@ -827,13 +919,11 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           scrollToBottom();
       } else { console.error("Cannot display error in chat bubble: responseContentSpan not found."); }
-      // Potentially remove the last user message from history if client-side error before/during fetch
-      // For now, it stays, as the error might be *after* sending.
     } finally {
       console.log("CLIENT-SIDE FINALLY BLOCK in handleSend");
       setLoadingState(false);
       promptTextarea.focus();
-      let thinkingIcon = document.querySelector('.thinking-icon'); // ensure removal
+      let thinkingIcon = document.querySelector('.thinking-icon'); 
       if (thinkingIcon) thinkingIcon.remove();
       console.log("UI re-enabled.");
     }
@@ -844,14 +934,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (oldVideo) oldVideo.remove();
     localStorage.removeItem('customBackgroundData');
   }
-  // Load custom background from localStorage on page load and check expiry
   const savedBgDataString = localStorage.getItem('customBackgroundData');
   if (savedBgDataString) {
     try {
       const savedBgData = JSON.parse(savedBgDataString);
         if (savedBgData && savedBgData.expiry && new Date().getTime() < savedBgData.expiry) {
         if (savedBgData.type === 'video' && savedBgData.videoDataUrl && savedBgData.videoMimeType) {
-          document.body.style.backgroundImage = 'none'; // Clear image bg
+          document.body.style.backgroundImage = 'none'; 
           const oldVideo = document.getElementById('video-bg');
           if (oldVideo) oldVideo.remove();
           const videoHTML = \`<video autoplay muted loop id="video-bg">
@@ -861,26 +950,24 @@ document.addEventListener('DOMContentLoaded', () => {
           document.body.insertAdjacentHTML('afterbegin', videoHTML);
         } else if (savedBgData.type === 'image' && savedBgData.imageData) {
           const oldVideo = document.getElementById('video-bg');
-          if (oldVideo) oldVideo.remove(); // Remove video if switching to image
+          if (oldVideo) oldVideo.remove(); 
           document.body.style.backgroundImage = 'url(' + savedBgData.imageData + ')';
         } else {
-          resetToDefaultBackground(); // Invalid data structure
+          resetToDefaultBackground(); 
         }
       } else {
-        resetToDefaultBackground(); // Expired or invalid data
+        resetToDefaultBackground(); 
       }
     } catch (e) {
       console.error("Error parsing custom background data:", e);
-      resetToDefaultBackground(); // Corrupted data
+      resetToDefaultBackground(); 
     }
-  } else {
-     // If no saved data, ensure default is set (it should be by CSS, but this is a fallback)
-     // document.body.style.backgroundImage = DEFAULT_BODY_BACKGROUND_IMAGE; 
-  }
+  } 
   sendBtn.addEventListener('click', handleSend);
   promptTextarea.addEventListener('keypress', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); } });
   promptTextarea.addEventListener('input', autoResizeTextarea);
   autoResizeTextarea();
+  window.addEventListener('resize', adjustMainContentPadding);
   console.log("Event listeners attached and initial setup done.");
 });
 </script>
@@ -902,7 +989,6 @@ export function renderHTML(isMobile) {
   <link rel="icon" href="https://www.cloudflare.com/favicon.ico" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   ` + styles + `
 </head>
 <style>
@@ -913,13 +999,13 @@ export function renderHTML(isMobile) {
 <body class="bg-gray-900 text-gray-100 font-sans">
 
   <div class="main-content-area">
-    <div class="p-0 text-center mb-0">
-      <h1 class="text-3xl font-bold my-4">Ultra AI ☁ Cloudflare 輕音Joy-AI公益站</h1>
-      <a href="https://www.qyjoy.vip" target="_blank" class="block font-bold cursor-pointer mb-3 animate-breathe" style="text-shadow:0 0 3px rgba(150, 255, 3, 0.97);">Serverless Powered By ⚡ 抖音|Bilibili|Youtube|网易云|公众号:輕音Joy</a>
+    <div class="p-0 text-center mb-1">
+      <h1 class="text-3xl font-bold my-1">Ultra AI ☁ Cloudflare 輕音Joy-AI公益站</h1>
+      <a href="https://www.qyjoy.vip" target="_blank" class="block font-bold cursor-pointer mb-1 animate-breathe" style="text-shadow:0 0 3px rgba(150, 255, 3, 0.97);">Serverless Powered By ⚡ 抖音|Bilibili|Youtube|网易云|公众号:輕音Joy</a>
     </div>
 
     <div class="px-4 sm:px-6 pb-0">
-      <div class="flex flex-col sm:flex-row gap-3">
+      <div class="flex flex-col sm:flex-row gap-3 my-1">
         <div class="w-full sm:w-1/2">
           <label for="model" class="block mb-1 text-sm font-medium text-gray-300">选择模型 Choose A Model：</label>
           <select id="model" class="w-full p-2.5 rounded border text-white focus:ring-blue-500 focus:border-blue-500">
@@ -930,14 +1016,14 @@ export function renderHTML(isMobile) {
         <div class="w-full sm:w-1/2">
           <label for="theme" class="block mb-1 text-sm font-medium text-gray-300">主题颜色 Theme color:</label>
           <select id="theme" class="w-full p-2.5 rounded border text-white">
-            <option value="default">默认色 Default Color</option>
+            <option value="rainbow" selected>彩虹呼吸 Rainbow Breathing</option>
+            <option value="blue">科技蓝 Tech Blue</option>
             <option value="purple">梦幻紫 Dreamy Purple</option>
             <option value="green">自然绿 Natural Green</option>
             <option value="pink">少女粉 Soft Pink</option>
             <option value="cyberpunk">赛博霓虹 Cyberpunk Neon</option>
             <option value="gradient">渐变紫橙 Gradient Purple-Orange</option>
             <option value="prism">幻彩棱镜 Iridescent Prism</option>
-            <option value="rainbow">彩虹呼吸 Rainbow Breathing</option>
             <option value="red">热情红 Passionate Red</option>
             <option value="yellow">活力黄 Vibrant Yellow</option>
           </select>
@@ -945,7 +1031,7 @@ export function renderHTML(isMobile) {
       </div>
     </div>
 
-   <div id="chat-container" class="flex-grow" style="flex-grow: 2; min-height: 60vh;">
+    <div id="chat-container" class="flex-grow px-2 pb-1">
       <div id="chat" class="flex flex-col space-y-2 p-1">
       </div>
     </div>
@@ -960,8 +1046,7 @@ export function renderHTML(isMobile) {
       <input type="file" id="fileUpload" multiple accept=".ini,.txt,.doc,.docx,.pdf,text/*,image/*,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="hidden">
       
       <textarea id="prompt" rows="1" class="flex-grow p-2.5 rounded border text-white focus:ring-blue-500 focus:border-blue-500" placeholder="输入你的任意问题... (Input whatever you want here...)"></textarea>
-      
-      <button id="sendBtn" class="flex-grow sm:flex-grow-0 flex items-center justify-center gap-2 p-2.5 rounded font-semibold text-white/90 transition duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed" style="min-width: 120px; background:rgba(37,99,235,0.75)!important;border:1px solid rgba(255,255,255,0.8)!important;box-shadow:0 2px 8px rgba(0,0,0,0.1)">
+      <button id="sendBtn" class="flex-grow sm:flex-grow-0 flex items-center justify-center gap-2 p-2.5 rounded font-semibold text-white/90 transition duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed" style="min-width: 120px; border:1px solid rgba(255,255,255,0.8)!important;box-shadow:0 2px 8px rgba(0,0,0,0.1)">
       <img src="https://www.cloudflare.com/favicon.ico" alt="Cloudflare" class="w-4 h-4">
         <span class="button-text">发送 Post</span><span id="sendIcon">➤</span><span id="loadingIcon" class="loader hidden"></span>
       </button>
