@@ -1,7 +1,3 @@
-// html-renderer.js
-// Generates the complete HTML page, including CSS and client-side JavaScript.
-
-// CSS styles for the page
 const getStyles = () => `
 <style>
 #video-bg {
@@ -917,9 +913,9 @@ export function renderHTML(isMobile) {
 <body class="bg-gray-900 text-gray-100 font-sans">
 
   <div class="main-content-area">
-    <div class="p-0 text-center mb-2">
+    <div class="p-0 text-center mb-0">
       <h1 class="text-3xl font-bold my-4">Ultra AI ☁ Cloudflare 輕音Joy-AI公益站</h1>
-      <a href="https://www.qyjoy.vip" target="_blank" class="block font-bold cursor-pointer mb-3 animate-breathe" style="text-shadow:0 0 3px rgba(150, 255, 3, 0.97);">Serverless Powered By 抖音|Bilibili|Youtube|网易云|公众号:輕音Joy</a>
+      <a href="https://www.qyjoy.vip" target="_blank" class="block font-bold cursor-pointer mb-3 animate-breathe" style="text-shadow:0 0 3px rgba(150, 255, 3, 0.97);">Serverless Powered By ⚡ 抖音|Bilibili|Youtube|网易云|公众号:輕音Joy</a>
     </div>
 
     <div class="px-4 sm:px-6 pb-0">
