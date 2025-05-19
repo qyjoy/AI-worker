@@ -1,14 +1,6 @@
 const getStyles = () => `
 <style>
-#video-bg {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -1;
-    object-fit: cover;
-  }
+#video-bg {position: fixed;right: 0;bottom: 0;min-width: 100%;min-height: 100%;z-index: -1;object-fit: cover;}
 :root {
   --table-bg-rgb: 0, 0, 0;
   --error-message-rgb: 185, 28, 28;
@@ -24,7 +16,6 @@ const getStyles = () => `
 }
 html, body { height: 100vh;margin: 0; padding: 0; overflow: hidden;}
 body {background: url('https://img.picui.cn/free/2025/05/17/6828a34e93555.png') no-repeat center center fixed;background-size: cover; display: flex; flex-direction: column;}
-// https://www.sensecore.cn/upload/20230330/crjfafitbja7qufwrt.jpg
 .main-content-area {backdrop-filter: blur(2px); flex-grow: 1; display: flex; flex-direction: column; width: 100%; overflow: hidden;}
 #chat-container { flex: 1 1 auto; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #4b5563 #374151; padding: 0.5rem 1rem; height: calc(100vh - 170px); }
 #chat > div {background-color: rgba(var(--user-message-rgb), 0.8);}
@@ -253,6 +244,10 @@ textarea#prompt { scrollbar-width: thin; scrollbar-color: #4b5563 #374151; min-h
     color: rgba(255, 255, 255, 0.7) !important;
     opacity: 1; 
 }
+.dragover-active {
+  border-color: rgba(var(--theme-primary-rgb), 0.9) !important;
+  box-shadow: 0 0 0 3px rgba(var(--theme-primary-rgb), 0.6) !important;
+}
 </style>
 `;
 
@@ -413,10 +408,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainArea = document.querySelector('.main-content-area');
     const filePreviews = document.getElementById('filePreviews');
     if (inputBar && mainArea) {
-        const inputBarHeight = inputBar.offsetHeight;
-        mainArea.style.paddingBottom = \`\${inputBarHeight}px\`;
+        var inputBarHeight = inputBar.offsetHeight;
+        mainArea.style.paddingBottom = inputBarHeight + 'px';
         if (filePreviews) { // Adjust file previews to sit above the input bar
-            filePreviews.style.bottom = \`\${inputBarHeight + 1}px\`; 
+            filePreviews.style.bottom = (inputBarHeight + 1) + 'px';
         }
     }
   }
@@ -542,48 +537,80 @@ document.addEventListener('DOMContentLoaded', () => {
     fileInput.click();
   });
 
-  fileInput.addEventListener('change', (event) => {
-    const files = event.target.files;
-    if (!files) return;
-    
-    Array.from(files).forEach(file => {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const base64Data = e.target.result.split(',')[1];
-            if (uploadedFiles.length < 5) { 
-                 uploadedFiles.push({
-                    name: file.name,
-                    mimeType: file.type,
-                    base64Data: base64Data
-                });
-                renderFilePreviews();
-            } else {
-                alert("Maximum 5 files allowed.");
+  function processAndAddFiles(filesToProcess) {
+    var alertShownForLimitThisBatch = false;
+    // filesToProcess can be a FileList or an Array of File objects
+    for (var i = 0; i < filesToProcess.length; i++) {
+        var file = filesToProcess[i];
+
+        if (uploadedFiles.length >= 10) {
+            if (!alertShownForLimitThisBatch) {
+                alert("Maximum 10 files allowed. Some subsequent files from this batch were not added.");
+                alertShownForLimitThisBatch = true;
             }
-        };
-        reader.readAsDataURL(file);
-    });
-    fileInput.value = ''; 
+            break; // Stop processing more files from this batch
+        }
+
+        if (file.size > 100 * 1024 * 1024) { // 100MB limit
+            alert("File '" + file.name + "' is too large (max 100MB) and will not be uploaded.");
+            continue; // Skip this file, process next in the loop
+        }
+
+        var reader = new FileReader();
+        // Use an IIFE to correctly capture the 'file' variable for the async onload callback
+        (function(fileForReader) {
+            reader.onload = function(e) {
+                // Final check before pushing, in case limit was hit by other async file reads
+                if (uploadedFiles.length < 10) {
+                    var base64Data = e.target.result.split(',')[1];
+                    uploadedFiles.push({
+                        name: fileForReader.name,
+                        mimeType: fileForReader.type,
+                        base64Data: base64Data
+                    });
+                    renderFilePreviews(); // This will call adjustMainContentPadding
+                } else {
+                    // This case might be hit if many small files are processed rapidly and fill the queue
+                    if (!alertShownForLimitThisBatch) {
+                        alert("最多支持上传10文件！Maximum 10 files allowed. File " + fileForReader.name + " could not be added as limit was reached during processing.");
+                        alertShownForLimitThisBatch = true;
+                    }
+                }
+            };
+            reader.readAsDataURL(fileForReader);
+        })(file);
+    }
+}
+
+  fileInput.addEventListener('change', function(event) {
+    var files = event.target.files;
+    if (!files) return;
+    processAndAddFiles(files);
+    fileInput.value = ''; // Clear the input to allow re-selecting the same file
   });
 
   function renderFilePreviews() {
     filePreviewsContainer.innerHTML = '';
-    uploadedFiles.forEach((file, index) => {
-        const badge = document.createElement('span');
+    var filesToRender = uploadedFiles.slice(0, 10);
+    filesToRender.forEach(function(file) {
+        var badge = document.createElement('span');
         badge.className = 'file-preview-badge';
         badge.textContent = file.name.length > 15 ? file.name.substring(0,12) + '...' : file.name;
-        
-        const removeBtn = document.createElement('span');
+        var removeBtn = document.createElement('span');
         removeBtn.className = 'remove-file';
         removeBtn.textContent = 'x';
         removeBtn.title = 'Remove ' + file.name;
-        removeBtn.onclick = () => {
-            uploadedFiles.splice(index, 1);
+        var fileToRemoveOnClick = file;
+        removeBtn.onclick = function() {
+            var originalIndex = -1;
+            for(var i = 0; i < uploadedFiles.length; i++) {if(uploadedFiles[i] === fileToRemoveOnClick) {originalIndex = i;break;}}          
+            if (originalIndex !== -1) {uploadedFiles.splice(originalIndex, 1);} else {console.warn("Could not find file by reference in uploadedFiles to remove it. This may happen if array/object was unexpectedly altered.");            }
             renderFilePreviews();
         };
         badge.appendChild(removeBtn);
         filePreviewsContainer.appendChild(badge);
     });
+    adjustMainContentPadding();
   }
 
   function adjustInputBarLayout() {
@@ -597,8 +624,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   adjustInputBarLayout(); 
+  promptTextarea.addEventListener('dragover', function(event) {
+    event.preventDefault(); // Necessary to allow drop
+    event.stopPropagation();
+    promptTextarea.classList.add('dragover-active');
+  });
 
+  promptTextarea.addEventListener('dragleave', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    promptTextarea.classList.remove('dragover-active');
+  });
 
+  promptTextarea.addEventListener('drop', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    promptTextarea.classList.remove('dragover-active');
+    var files = event.dataTransfer.files;
+    if (files && files.length > 0) {
+      processAndAddFiles(files);
+    }
+  });
+  promptTextarea.addEventListener('paste', function(event) {
+    var clipboardItems = (event.clipboardData || event.originalEvent.clipboardData).items;
+    var filesToProcess = [];
+    if (clipboardItems) {
+        for (var i = 0; i < clipboardItems.length; i++) {
+            if (clipboardItems[i].kind === 'file') {
+                var file = clipboardItems[i].getAsFile();
+                if (file) { filesToProcess.push(file); }
+            }
+        }
+    }
+    if (filesToProcess.length > 0) {
+      event.preventDefault(); // Prevent pasting file path as text or file metadata
+      processAndAddFiles(filesToProcess);
+    }
+  });
   function setLoadingState(isLoading) {
     if (!sendBtn || !promptTextarea || !buttonText || !sendIcon || !loadingIcon) {
         console.error("Error inside setLoadingState: Required elements missing.");
