@@ -248,6 +248,48 @@ textarea#prompt { scrollbar-width: thin; scrollbar-color: #4b5563 #374151; min-h
   border-color: rgba(var(--theme-primary-rgb), 0.9) !important;
   box-shadow: 0 0 0 3px rgba(var(--theme-primary-rgb), 0.6) !important;
 }
+#fontSizeSlider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%; /* Full width within its container */
+  height: 8px;
+  background: rgba(var(--input-bg-rgb), 0.6);
+  border-radius: 5px;
+  outline: none;
+  opacity: 0.8;
+  transition: opacity .15s ease-in-out;
+  border: 1px solid rgba(var(--input-border-rgb), 0.7);
+}
+#fontSizeSlider:hover {
+  opacity: 1;
+}
+#fontSizeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: rgba(var(--theme-primary-rgb), 0.9);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid rgba(255,255,255,0.6);
+  box-shadow: 0 0 5px rgba(var(--theme-primary-rgb),0.6);
+}
+#fontSizeSlider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: rgba(var(--theme-primary-rgb), 0.9);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid rgba(255,255,255,0.6);
+  box-shadow: 0 0 5px rgba(var(--theme-primary-rgb),0.6);
+}
+.input-bar-container.rainbow-active #fontSizeSlider {
+    border-color: rgba(255,255,255,0.6) !important; /* Already covered by general rule but explicit for clarity */
+}
+.input-bar-container.rainbow-active #fontSizeSlider::-webkit-slider-thumb,
+.input-bar-container.rainbow-active #fontSizeSlider::-moz-range-thumb {
+  /* Thumb will use the animated background from the general rule for .rainbow-active controls */
+}
 </style>
 `;
 
@@ -341,8 +383,10 @@ document.addEventListener('DOMContentLoaded', () => {
     root.style.setProperty('--input-bar-bg-rgb', theme.inputBar || themeConfig.blue.inputBar);
 
     const isCyberpunk = themeName === 'cyberpunk';
-    const allInteractiveElements = document.querySelectorAll('select, #prompt, #sendBtn, #clearChatBtn, #settingsBtn, #fileUploadBtn, #customApiKey, #saveApiKeyBtn, #setBgBtn');
-
+    const allInteractiveElements = document.querySelectorAll(
+      'select, #prompt, #sendBtn, #clearChatBtn, #settingsBtn, #fileUploadBtn, #customApiKey, #saveApiKeyBtn, #setBgBtn, #fontSizeSlider'
+    );
+    const textElementsInSettings = document.querySelectorAll('#apiKeyControls label, #fontSizeValue');
     allInteractiveElements.forEach(el => {
       // Clear any inline styles first, to let CSS classes take precedence or apply new theme's styles
       el.style.borderColor = '';
@@ -365,7 +409,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
-
+    textElementsInSettings.forEach(el => {
+        if (themeName === 'rainbow') {
+        } else {
+            el.style.color = 'rgba(' + getComputedStyle(root).getPropertyValue('--user-text-rgb') + ',0.9)';
+            el.style.textShadow = ''; 
+        }
+    });
     if (mainContentArea) {
         mainContentArea.classList.toggle('rainbow-theme-bg', themeName === 'rainbow');
     }
@@ -437,12 +487,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const fileInput = document.getElementById('fileUpload');
   const filePreviewsContainer = document.getElementById('filePreviews');
   const DEFAULT_BODY_BACKGROUND_IMAGE = "url('https://www.sensecore.cn/upload/20230330/crjfafitbja7qufwrt.jpg')";
+const fontSizeSlider = document.getElementById('fontSizeSlider');
+const fontSizeValue = document.getElementById('fontSizeValue');
   
   let conversationHistory = [];
   let uploadedFiles = [];
-
-  if (!chat || !chatContainer || !sendBtn || !promptTextarea || !modelSelect || !sendIcon || !loadingIcon || !buttonText || !clearChatBtn || !settingsBtn || !customApiKeyInput || !saveApiKeyBtn || !setBgBtn || !bgFileInput || !apiKeyControls || !fileUploadBtn || !fileInput || !filePreviewsContainer) {
-    console.error("CRITICAL ERROR: One or more essential HTML elements not found.");
+  const essentialElements = [chat, chatContainer, sendBtn, promptTextarea, modelSelect, sendIcon, loadingIcon, buttonText, clearChatBtn, settingsBtn, customApiKeyInput, saveApiKeyBtn, setBgBtn, bgFileInput, apiKeyControls, fileUploadBtn, fileInput, filePreviewsContainer, fontSizeSlider, fontSizeValue];  
+  if (essentialElements.some(el => !el)) {
+    console.error("CRITICAL ERROR: One or more essential HTML elements not found. Missing elements:", essentialElements.map((el,i) => el ? '' : i).filter(String));
     alert("Page load error: Essential chat interface elements are missing. Please check HTML or try later.");
     return;
   }
@@ -453,7 +505,20 @@ document.addEventListener('DOMContentLoaded', () => {
     customApiKeyInput.value = savedApiKey;
     console.log("Loaded custom API key from localStorage.");
   }
+  function applyChatFontSize(size) {
+    const newSize = parseInt(size, 10);
+    if (chat) chat.style.fontSize = \`\${newSize}px\`;
+    if (fontSizeSlider) fontSizeSlider.value = newSize;
+    if (fontSizeValue) fontSizeValue.textContent = \`\${newSize}px\`;
+    localStorage.setItem('chatFontSize', newSize);
+  }
 
+  const savedFontSize = localStorage.getItem('chatFontSize') || '16'; // Default 16px
+  applyChatFontSize(savedFontSize);
+
+  fontSizeSlider.addEventListener('input', function() {
+    applyChatFontSize(this.value);
+  });
   settingsBtn.addEventListener('click', () => {
     apiKeyControls.classList.toggle('hidden');
     adjustInputBarLayout();
@@ -1034,7 +1099,6 @@ function scrollToBottom() {
 });
 </script>
 `;
-
 // Main HTML structure
 export function renderHTML(isMobile) {
   const styles = getStyles();
@@ -1127,9 +1191,14 @@ export function renderHTML(isMobile) {
       </button>
     </div>
     <div id="apiKeyControls" class="hidden mt-2 flex items-center gap-2">
-           <input type="password" id="customApiKey" placeholder="输入自定义API(Enter your API Key)" class="flex-grow p-2 rounded border text-white" style="width: 50%;">
-      <button id="saveApiKeyBtn" class="p-2 rounded bg-blue-600 hover:bg-blue-700 text-white font-semibold">保存 (Save)</button>
-      <button id="setBgBtn" class="p-2 rounded bg-green-600 hover:bg-green-700 text-white font-semibold" style="flex-shrink: 0;">自定义背景(Set Background)</button>
+      <input type="password" id="customApiKey" placeholder="输入自定义API (Enter Your Own API Key if needed)" class="flex-grow p-2 rounded border text-white" style="min-width: 180px;">
+      <button id="saveApiKeyBtn" class="p-2 rounded bg-blue-600 hover:bg-blue-700 text-white font-semibold">保存API(Save)</button>
+      <div id="fontSizeControlContainer" class="flex items-center gap-2 flex-grow" style="min-width: 200px; max-width:300px;">
+        <label for="fontSizeSlider" class="text-sm text-gray-300 whitespace-nowrap">字号(FontSize):</label>
+        <input type="range" id="fontSizeSlider" min="12" max="28" class="flex-1 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+        <span id="fontSizeValue" class="text-sm text-gray-300 w-12 text-right">16px</span>
+      </div>
+      <button id="setBgBtn" class="p-2 rounded bg-green-600 hover:bg-green-700 text-white font-semibold" style="flex-shrink: 0;">设置背景(Set background)</button>   
       <input type="file" id="bgFileInput" class="hidden" accept="image/*,video/*,.mp4,.mkv,.webm">
     </div>
   </div>
