@@ -1,6 +1,6 @@
 name: 功能性問題回報
 description: 回報一個明確的功能性錯誤，例如按鈕無效或邏輯錯誤
-title: "[Bug] <請簡要描述問題>"
+title: "標題:請簡要描述問題"
 labels: [bug, functional]
 body:
   - type: markdown
@@ -52,8 +52,8 @@ body:
   - type: textarea
     id: actual-behavior
     attributes:
-      label: 實際行為
-      description: 描述實際出現的狀況
+      label: 實際行為(提供截圖)
+      description: 描述實際出現的狀況(提供截圖)
     validations:
       required: true
 
