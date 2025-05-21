@@ -37,7 +37,7 @@
 *   提供一个简单、可定制的HTML界面与AI进行交互。
 *   利用Cloudflare的全球网络实现潜在的低延迟和高可扩展性。
 ## 🎈 Features | 功能
-![1](https://github.com/user-attachments/assets/93bd0528-1288-4ee9-8607-28a08a2e8d4e)
+![image](pic/2.png) 
 *   **🎯 Proxy AI Requests / 转发AI请求:**
     *   EN:Or you could say it's"Forward AI request", whatever, anyway → Securely routes requests to Google's Gemini and Imagen APIs.
     *   ZH: 安全地将请求路由到Google的Gemini和Imagen API。
@@ -59,7 +59,7 @@
 *   **🌍 No VPN Proxy Required / 访问无需翻牆挂代理:**
     *   EN: For users in regions with restricted access, this proxy on Cloudflare's network can enable access without a VPN for the end-user.
     *   ZH: 对于某些地区可能无法直接访问Google API的用户，在Cloudflare的网络上部署此代理可以让最终用户无需翻墙即可访问。
-![v4b](https://github.com/user-attachments/assets/0cdfbd18-01d6-4f6f-9ab6-5e66479cf6a0)
+![image](pic/3.png) 
 ## 👍 Advantages of using Cloudflare Workers | 使用Cloudflare Worker的优点
 
 **EN:**
@@ -68,7 +68,7 @@
 *   **📈 Scalability:** Automatically scales with traffic.
 *   **🚀 Ease of Deployment:** Deploy directly from the Cloudflare dashboard or via Wrangler CLI.
 *   **🔒 Secure API Key Handling:** Keep your API keys safe using encrypted environment variables.
-  ![2](https://github.com/user-attachments/assets/388413fb-9f92-4fdd-a521-36169dbf3d1e)
+![image](pic/4.png) 
 **ZH:**
 *   **💸 无服务器且经济高效：** 无需管理服务器。免费套餐通常足以满足个人项目需求。
 *   **⚡ 边缘部署：** 更接近用户运行，减少延迟。支持多种平台worker
@@ -108,7 +108,7 @@ Follow these steps to deploy your own instance:
         *   **Variable name:** `GEMINI_API_KEY`
         *   **Value:** Your actual Google AI Studio or Google Cloud Vertex AI API Key.
         *   **IMPORTANT:** Click the **"Encrypt"** button next to the value field to secure your API key.
-   ![setAPI](https://github.com/user-attachments/assets/5fbce58c-3df7-420e-a452-90f60d414276)
+![image](api/1.png) 
     *   ZH: 进入Worker的 **设置 (Settings)** 选项卡, 然后选择 **变量 (Variables)**。
     *   在 **环境变量 (Environment Variables)** 部分, 点击 **"添加变量 (Add variable)"**。
         *   **变量名称 (Variable name):** `GEMINI_API_KEY`
