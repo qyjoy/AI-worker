@@ -1,0 +1,66 @@
+name: 功能性問題回報
+description: 回報一個明確的功能性錯誤，例如按鈕無效或邏輯錯誤
+title: "[Bug] <請簡要描述問題>"
+labels: [bug, functional]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感謝你的提交！請確認你回報的是一個 **功能性問題（functional problem）**，而不是效能、體驗或個人意見等非功能性問題。
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: 問題類型
+      description: 請選擇你回報的問題類型
+      options:
+        - 功能性問題（功能邏輯錯誤、按鈕無作用等）
+        - 非功能性問題（UI不佳、速度慢、體驗建議等）❌請勿在此提交
+      default: 0
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: 運行環境
+      description: 請提供你的瀏覽器、作業系統、版本等資訊
+      placeholder: 例如：Chrome 123 / macOS 14.4
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce-steps
+    attributes:
+      label: 重現步驟
+      description: 請詳述重現問題的步驟
+      placeholder: |
+        1. 打開頁面
+        2. 點擊按鈕X
+        3. 發生了問題Y
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: 預期行為
+      description: 描述你原本期望看到的結果
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: 實際行為
+      description: 描述實際出現的狀況
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: 提交確認
+      options:
+        - label: 我確認這是一個功能性問題，而不是建議或非功能性問題
+          required: true
