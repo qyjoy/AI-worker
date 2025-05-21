@@ -1,0 +1,13 @@
+blank_issues_enabled: false
+  - name: ⛔ [RU]Пожалуйста, не отправляйте нефункциональные проблемы здесь
+    url: https://github.com/qyjoy/Gemini-CFworker/discussions
+    about: Для отзывов и предложений по производительности используйте Discussions
+
+contact_links:
+  - name: ⛔ [CN]請勿在此提交非功能性問題
+    url: https://github.com/qyjoy/Gemini-CFworker/discussions
+    about: 體驗問題、效能建議請移步 Discussions 區域
+
+  - name: ⛔ [EN]You are not allowed to report non-functional issues here 
+    url: https://github.com/qyjoy/Gemini-CFworker/discussions
+    about: For feedback or performance suggestions, use Discussions
