@@ -108,7 +108,7 @@ Follow these steps to deploy your own instance:
         *   **Variable name:** `GEMINI_API_KEY`
         *   **Value:** Your actual Google AI Studio or Google Cloud Vertex AI API Key.
         *   **IMPORTANT:** Click the **"Encrypt"** button next to the value field to secure your API key.
-![image](api/1.png) 
+![image](pic/api.png) 
     *   ZH: 进入Worker的 **设置 (Settings)** 选项卡, 然后选择 **变量 (Variables)**。
     *   在 **环境变量 (Environment Variables)** 部分, 点击 **"添加变量 (Add variable)"**。
         *   **变量名称 (Variable name):** `GEMINI_API_KEY`
