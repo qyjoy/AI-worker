@@ -16,7 +16,7 @@
 <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Google%20Gemini-Compatible-blueviolet?style=flat-square&logo=google" alt="Google Gemini Compatible"></a>
 </p>
 <p align="center">
-  <em>Free, Private Gemini Access via Cloudflare. No VPN needed for restricted Countries. Full Control.</em>
+  <em>Free, Private Gemini Access via Cloudflare. No VPN needed for restricted Countries. Full Control, with GPL 3.0 protocol</em>
   <br>
   <em>通过Cloudflare免费、私有化访问和管理Gemini~摆脱地域限制无烦恼，完全由自己掌控，原生gemini等AI模型，支持上传图片，录音等</em>
 </p>
