@@ -38,8 +38,8 @@
 *   利用Cloudflare的全球网络实现潜在的低延迟和高可扩展性。
 ## 🎈 Features | 功能
 ![1](https://github.com/user-attachments/assets/93bd0528-1288-4ee9-8607-28a08a2e8d4e)
-*   **🤖 Proxy AI Requests / 代理AI请求:**
-    *   EN: Securely routes requests to Google's Gemini and Imagen APIs.
+*   **🎯 Proxy AI Requests / 转发AI请求:**
+    *   EN:Or you could say it's"Forward AI request", whatever, anyway → Securely routes requests to Google's Gemini and Imagen APIs.
     *   ZH: 安全地将请求路由到Google的Gemini和Imagen API。
 *   **🔑 API Key Management / API密钥管理:**
     *   EN: Store your API key securely in Cloudflare Worker environment variables.
