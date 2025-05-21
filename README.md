@@ -166,6 +166,7 @@ Cloudflare 所禁止的“网络代理”，指的是通用数据转发或翻墙
 | ⚙️ 部署复杂度                               | 低：纯 Worker 脚本 + API 配置                   | 高：需要服务端、端口映射、防火墙规则等         |
 | 🎯 示例项目                                 | Cloudflare Worker 转发 Gemini API              | Clash、Trojan、V2Ray、Shadowsocks 等工具       |
 > ✅ 本项目使用的是 **API Forward** 模式，完全符合 Cloudflare 的服务政策，安全、可控、稳定。
+
 **EN:**
 Some users have asked whether this project violates Cloudflare's Terms of Service because of the term "proxy" being used. Let's clarify:
 This project is an **API forwarder / API proxy**, not a **network proxy**.
