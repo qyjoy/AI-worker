@@ -1,0 +1,66 @@
+name: Сообщить о функциональной ошибке
+description: Сообщите о конкретной проблеме с функциональностью, например, неработающей кнопке или логической ошибке
+title: "[Баг] <Краткое описание проблемы>"
+labels: [bug, functional]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Спасибо за ваше сообщение! Пожалуйста, убедитесь, что вы сообщаете о **функциональной проблеме**, а не о производительности, пользовательском опыте или личных предпочтениях.
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Тип проблемы
+      description: Пожалуйста, выберите тип проблемы
+      options:
+        - Функциональная проблема (ошибка логики, неработающие кнопки и т.д.)
+        - Нефункциональная проблема (интерфейс, производительность, опыт) ❌ не отправляйте здесь
+      default: 0
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Окружение
+      description: Укажите браузер, операционную систему и версию
+      placeholder: Например: Chrome 123 / Windows 11
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce-steps
+    attributes:
+      label: Шаги для воспроизведения
+      description: Опишите шаги, чтобы воспроизвести проблему
+      placeholder: |
+        1. Откройте страницу
+        2. Нажмите кнопку X
+        3. Произошла ошибка Y
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Ожидаемое поведение
+      description: Опишите, что вы ожидали увидеть
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Фактическое поведение
+      description: Опишите, что произошло на самом деле
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Подтверждение
+      options:
+        - label: Я подтверждаю, что это функциональная проблема, а не предложение или нефункциональная жалоба
+          required: true
