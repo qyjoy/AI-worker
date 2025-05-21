@@ -31,7 +31,7 @@
 ![image](https://github.com/user-attachments/assets/d71dd5cc-62e8-4f14-a2f4-9d1ef4206aee)
 <br>Before: Your area > Not allow to access > AI ×
 <br>Now : Your area > Cloudflare Worker > AI √
-**ZH:** 此Cloudflare Worker项目充当Google生成式AI API（Gemini用于文本生成，Imagen用于图像生成）的安全高效代理。它允许您：
+<br>**ZH:** 此Cloudflare Worker项目充当Google生成式AI API（Gemini用于文本生成，Imagen用于图像生成）的安全高效代理。它允许您：
 *   从任何地方访问Google强大的AI模型，包括那些可能难以直接访问的地区。
 *   使用Cloudflare的环境变量安全地管理您的Google AI API密钥，避免其暴露在客户端代码中。
 *   提供一个简单、可定制的HTML界面与AI进行交互。
