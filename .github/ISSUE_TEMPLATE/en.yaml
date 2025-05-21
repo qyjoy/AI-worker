@@ -1,0 +1,66 @@
+name: Functional Issue Report
+description: Report a specific functional bug, such as a non-working button or logical error
+title: "Title: Please briefly describe the issue"
+labels: [bug, functional]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your submission! Please make sure you are reporting a **functional problem**, not a non-functional issue like performance, experience, or personal preference.
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Issue Type
+      description: Please select the type of issue you are reporting
+      options:
+        - Functional issue (logic errors, non-working buttons, etc.)√
+        - ❌Non-functional issue (UI problems, slow speed, experience suggestions, etc.) Do NOT submit here
+      default: 0
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Please provide your browser, OS, version, etc.
+      placeholder: e.g., Chrome 123 / macOS 14.4
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce-steps
+    attributes:
+      label: Reproduction Steps
+      description: Please describe the steps to reproduce the issue
+      placeholder: |
+        1. Open the page
+        2. Click button X
+        3. Problem Y occurs
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: Describe what you expected to happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual Behavior (please provide screenshots)
+      description: Describe what actually happened (please provide screenshots)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Submission Confirmation
+      options:
+        - label: I confirm this is a functional issue, not a suggestion or non-functional problem
+          required: true
