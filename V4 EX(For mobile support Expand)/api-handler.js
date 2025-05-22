@@ -1,8 +1,4 @@
-// api-handler.js
-// Handles communication with the Google Generative AI API.
-
 import { corsHeaders } from './utils.js';
-
 export async function handleApiCall(request, env, logPrefix) {
   console.log(logPrefix + " Processing POST request for API call.");
 
@@ -18,8 +14,6 @@ export async function handleApiCall(request, env, logPrefix) {
   }
 
   const { model, history, currentTurnParts, customApiKey } = requestBody;
-  // 'prompt' from requestBody is not directly used for API call structure, 
-  // 'currentTurnParts' and 'history' are used instead.
 
   if (!model || !currentTurnParts || !Array.isArray(currentTurnParts)) {
     console.error(logPrefix + " Missing model or currentTurnParts in request body.");
@@ -51,13 +45,13 @@ export async function handleApiCall(request, env, logPrefix) {
     });
   }
 
-  let apiEndpoint = "streamGenerateContent"; // 默认流式文本对话
+  let apiEndpoint = "streamGenerateContent"; 
   let isStreaming = true;
   if (model === "gemini-2.0-flash-preview-image-generation") {
-    apiEndpoint = "generateContent"; // 图像生成使用非流式
+    apiEndpoint = "generateContent"; 
     isStreaming = false;
   } else if (model === "veo-2.0-generate-001") {
-    apiEndpoint = "generateVideo"; // 视频生成
+    apiEndpoint = "generateVideo"; 
     isStreaming = false;
   }
   const apiVersion = "v1beta";
@@ -72,7 +66,15 @@ export async function handleApiCall(request, env, logPrefix) {
       }
     });
   }
-  contentsForApi.push({ role: "user", parts: currentTurnParts });
+    const systemPrompt = "answer in 中文"; // 这里可以根据需要修改提示词 you can set your own prompt here
+    let promptedUserParts = [...currentTurnParts]; 
+    if (promptedUserParts.length > 0 && typeof promptedUserParts[0].text === 'string') {
+      promptedUserParts[0] = { ...promptedUserParts[0], text: systemPrompt + " " + promptedUserParts[0].text };
+    } else {
+
+      promptedUserParts.unshift({ text: systemPrompt });
+    }
+    contentsForApi.push({ role: "user", parts: promptedUserParts });
   const apiRequestBody = {contents: contentsForApi,};
   try {
     console.log(logPrefix + " Sending request to Google API...");
