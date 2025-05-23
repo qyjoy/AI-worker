@@ -12,7 +12,7 @@ body:
     id: issue-type
     attributes:
       label: 問題類型
-      description: 請選擇你回報的問題類型（**至少25字**，太短可能會被AI退回）
+      description: 請選擇你回報的問題類型
       options:
         - 功能性(F:Functional)問題（功能邏輯錯誤、按鈕無作用等）
         - 非功能性(NF:Non-Functional)問題（UI不佳、速度慢、體驗建議等）❌請勿在此提交
@@ -44,7 +44,7 @@ body:
   - type: textarea
     id: expected-behavior
     attributes:
-      label: 預期行為（**至少25字**，太短可能會被AI退回）
+      label: 預期行為（至少25字，太短可能會被AI自動退回）
       description: 描述你原本期望看到的結果
     validations:
       required: true
@@ -52,7 +52,7 @@ body:
   - type: textarea
     id: actual-behavior
     attributes:
-      label: 實際行為(提供截圖)
+      label: 實際行為(提供截圖,至少25字，太短可能會被AI自動退回）
       description: 描述實際出現的狀況(提供截圖)
     validations:
       required: true
