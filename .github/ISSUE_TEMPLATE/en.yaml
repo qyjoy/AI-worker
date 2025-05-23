@@ -1,21 +1,21 @@
 name: Functional Issue Report
-description: Report a specific functional bug, such as a non-working button or logical error
+description: Report a clear functional error, such as a button not working or a logic bug
 title: "Title: Please briefly describe the issue"
-labels: [bug, functional]
+labels: [enhancement, question, documentation, invalid, bug, help wanted, functional]
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you for your submission! Please make sure you are reporting a **functional problem**, not a non-functional issue like performance, experience, or personal preference.
+        Thank you for your submission! Please make sure you're reporting a **functional issue**, not a performance concern, UI feedback, or personal suggestion.
 
   - type: dropdown
     id: issue-type
     attributes:
-      label: Issue Type
-      description: Please select the type of issue you are reporting
+      label: Type of Issue
+      description: Please select the type of problem you're reporting
       options:
-        - Functional issue (logic errors, non-working buttons, etc.)√
-        - ❌Non-functional issue (UI problems, slow speed, experience suggestions, etc.) Do NOT submit here
+        - Functional (F): Functional error such as logic bugs or non-working buttons
+        - Non-Functional (NF): UI/UX issues, slowness, suggestions etc. ❌ Please do NOT submit here
       default: 0
     validations:
       required: true
@@ -23,17 +23,17 @@ body:
   - type: input
     id: environment
     attributes:
-      label: Environment
-      description: Please provide your browser, OS, version, etc.
-      placeholder: e.g., Chrome 123 / macOS 14.4
+      label: Runtime Environment
+      description: Provide your browser, OS, and version
+      placeholder: e.g. Chrome 123 / macOS 14.4
     validations:
       required: true
 
   - type: textarea
     id: reproduce-steps
     attributes:
-      label: Reproduction Steps
-      description: Please describe the steps to reproduce the issue
+      label: Steps to Reproduce
+      description: Provide detailed steps to reproduce the issue
       placeholder: |
         1. Open the page
         2. Click button X
@@ -44,7 +44,7 @@ body:
   - type: textarea
     id: expected-behavior
     attributes:
-      label: Expected Behavior
+      label: Expected Behavior (at least 50 EN characters, too short may be auto-rejected by AI)
       description: Describe what you expected to happen
     validations:
       required: true
@@ -52,15 +52,17 @@ body:
   - type: textarea
     id: actual-behavior
     attributes:
-      label: Actual Behavior (please provide screenshots)
-      description: Describe what actually happened (please provide screenshots)
+      label: Actual Behavior (attach screenshot, at least 50 EN characters, too short may be auto-rejected by AI)
+      description: Describe what actually happened (attach screenshot)
     validations:
       required: true
 
   - type: checkboxes
     id: confirmations
     attributes:
-      label: Submission Confirmation
+      label: Submission Confirmation (If you’re sure this is a bug, you can add the 'BUG' label)
       options:
-        - label: I confirm this is a functional issue, not a suggestion or non-functional problem
+        - label: I confirm this is a functional issue, not a suggestion or non-functional feedback
+          required: true
+        - label: I acknowledge and agree that the final interpretation and handling (e.g. Close, mark as invalid) of this issue lies with the project contributors and maintainers
           required: true
