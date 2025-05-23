@@ -59,7 +59,7 @@
 *   **🌍 No VPN Proxy Required / 访问无需翻牆挂代理:**
     *   EN: For users in regions with restricted access, this proxy on Cloudflare's network can enable access without a VPN for the end-user.
     *   ZH: 对于某些地区可能无法直接访问Google API的用户，在Cloudflare的网络上部署此代理可以让最终用户无需翻墙即可访问。
-![image](pic/3.png) 
+![image](pic/3.jpg) 
 ## 👍 Advantages of using Cloudflare Workers | 使用Cloudflare Worker的优点
 
 **EN:**
