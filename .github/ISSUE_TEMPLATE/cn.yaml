@@ -62,5 +62,7 @@ body:
     attributes:
       label: 提交確認(如果你確定此issue為BUG，可在標籤label勾選加上'BUG')
       options:
-        - label: 我確認這是一個功能性問題，而不是建議或非功能性問題
+        - label: 我確認:這是一個功能性問題，而不是建議或非功能性問題
+          required: true
+        - label: 我承認並同意:本issue的分類與處理(如Close、標記為invalid)最終解釋權歸本項目貢獻者與維護者所有
           required: true
