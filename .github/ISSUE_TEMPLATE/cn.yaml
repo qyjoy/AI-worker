@@ -1,4 +1,4 @@
-name: 功能性問題回報
+name: ⚠功能性問題回報
 description: 回報一個明確的功能性錯誤，例如按鈕無效或邏輯錯誤
 title: "標題:請簡要描述問題"
 labels: [enhancement, question, documentation, invalid, help wanted, functional]
