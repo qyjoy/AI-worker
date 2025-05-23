@@ -4,7 +4,7 @@
 <h1 align="center">Ultra Cloudflare☁️Serverless AI worker</h1>
 <p align="center">
   <strong>EN:</strong> A simple yet powerful Cloudflare Worker to proxy requests to APIs. Enables access to advanced AI models from the edge, securely managing API keys and bypassing regional restrictions.Also available for others popular worker.Gonna have R2 and D2 in the later versions
-  <br><strong>ZH:</strong> 一个简洁而强大的Cloudflare Worker，用于转发API请求至各大AI平台，并且将计算节点靠近用户部署，使得您可以从边缘访问高级AI模型，结合KV安全管理API密钥，并绕过地域限制同时支持其他主流平台worker,后期将拓展R2和D1数据库支持
+  <br><strong>ZH:</strong> 一个简洁而强大的Cloudflare Worker，用于转发API请求至各大AI平台，并且将全球各地的计算节点靠近用户部署，使得您可以从边缘访问高级AI模型，结合KV安全管理API密钥，并绕过地域限制同时支持其他主流平台worker,后期将拓展R2和D1数据库支持
   <br><strong>RU:</strong>Простой, но мощный Cloudflare Worker для проксирования запросов API. Обеспечивает доступ к передовым ИИ-моделям с периферии, безопасно управляя API-ключами и обходя региональные ограничения. Поддерживает интеграцию с другими Worker-платформами, в будущем планируется расширение с использованием баз данных R2 и D1.
   <b4>
 </p>
