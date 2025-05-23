@@ -13,7 +13,7 @@
   <a href="https://github.com/qyjoy/Gemini-CFworker/issues"><img src="https://img.shields.io/github/issues/qyjoy/Gemini-CFworker?style=flat-square&color=orange" alt="GitHub Issues"></a>
   <a href="https://github.com/qyjoy/Gemini-CFworker/blob/main/LICENSE"><img src="https://img.shields.io/github/license/qyjoy/Gemini-CFworker?style=flat-square&color=blue" alt="License"></a>
 <a href="https://workers.cloudflare.com/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Cloudflare%20Workers-Ready-orange?style=flat-square&logo=cloudflare" alt="Cloudflare Workers Ready"></a>
-<a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Google%20Gemini-886FBF?style=flat-square&logo=googlegemini&logoColor=fff" alt="Google Gemini Compatible"></a>
+<a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:inline-flex;align-items:center;"><img src="https://img.shields.io/badge/Google-4285F4?style=flat-square&logo=googlegemini&logoColor=fff" alt="Google Gemini" style="border-radius:0 0 0 0;"><img src="https://img.shields.io/badge/Gemini-886FBF?style=flat-square&logo=&logoColor=fff" alt="Gemini" style="border-radius:0 0 0 0;"></a>
 </p>
 <p align="center">
   <em>Free, Private Gemini Access via Cloudflare. No VPN needed for restricted Countries. Full Control, with GPL 3.0 protocol</em>
