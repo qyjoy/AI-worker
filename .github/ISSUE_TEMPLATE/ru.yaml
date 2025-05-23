@@ -1,7 +1,7 @@
 name: Сообщение о функциональной проблеме
 description: Сообщите о чёткой функциональной ошибке, например, неработающей кнопке или сбое в логике
 title: "Заголовок: кратко опишите проблему"
-labels: [bug, functional]
+labels: [enhancement, question, documentation, invalid, help wanted, functional]
 body:
   - type: markdown
     attributes:
