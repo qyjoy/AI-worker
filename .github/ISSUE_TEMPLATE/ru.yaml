@@ -1,7 +1,7 @@
 name: Сообщение о функциональной проблеме
 description: Сообщите о чёткой функциональной ошибке, например, неработающей кнопке или сбое в логике
 title: "Заголовок: кратко опишите проблему"
-labels: [enhancement, question, documentation, invalid, help wanted, functional]
+labels: [bug, functional]
 body:
   - type: markdown
     attributes:
@@ -25,7 +25,7 @@ body:
     attributes:
       label: Окружение
       description: Укажите ваш браузер, операционную систему и версию
-      placeholder: Например: Chrome 123 / macOS 14.4
+      placeholder: "Chrome 123 / macOS 14.4"
     validations:
       required: true
 
@@ -33,7 +33,6 @@ body:
     id: reproduce-steps
     attributes:
       label: Шаги для воспроизведения
-      description: Подробно опишите, как воспроизвести проблему
       placeholder: |
         1. Откройте страницу
         2. Нажмите кнопку X
@@ -44,25 +43,24 @@ body:
   - type: textarea
     id: expected-behavior
     attributes:
-      label: Ожидаемое поведение (минимум 30 символов, слишком короткие ответы могут быть отклонены ИИ)
-      description: Опишите, что вы ожидали увидеть
+      label: Ожидаемое поведение (минимум 30 символов)
     validations:
       required: true
+      maxLength: 200
 
   - type: textarea
     id: actual-behavior
     attributes:
-      label: Фактическое поведение (с приложением скриншота, минимум 30 символов)
-      description: Опишите, что произошло на самом деле (по возможности приложите скриншот)
+      label: Фактическое поведение (с приложением скриншота)
     validations:
       required: true
 
   - type: checkboxes
     id: confirmations
     attributes:
-      label: Подтверждение отправки (Если вы уверены, что это баг — добавьте ярлык 'BUG')
+      label: Подтверждение отправки
       options:
-        - label: Я подтверждаю, что это функциональная проблема, а не предложение или нефункциональная жалоба
+        - label: "Я подтверждаю, что это функциональная проблема"
           required: true
-        - label: Я признаю и соглашаюсь, что окончательное решение и трактовка этого issue (например, закрытие, маркировка как invalid) остаются за участниками и мейнтейнерами проекта
+        - label: "Я согласен с политикой обработки issue"
           required: true
