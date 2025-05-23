@@ -1,4 +1,4 @@
-name: Functional Issue Report
+name: ⚠Functional Issue Report
 description: Report a clear functional error, such as a button not working or a logic bug
 title: "Title: Please briefly describe the issue"
 labels: [enhancement, question, documentation, invalid, help wanted, functional]
