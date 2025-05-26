@@ -1,0 +1,17 @@
+{
+  "name": "cloudflare-ai-chat-upgraded",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "db:migrate": "wrangler d1 migrations apply your-d1-database-name --local",
+    "db:migrate:prod": "wrangler d1 migrations apply your-d1-database-name"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  },
+  "dependencies": {
+    "hono": "^4.0.0"
+  }
+}
