@@ -1,0 +1,22 @@
+/
+├── wrangler.toml
+├── package.json
+├── migrations/
+│   └── 0001_initial_schema.sql  // D1 database schema
+└── src/
+    ├── worker.js                // Main entry point
+    ├── request-handler.js       // Main request router
+    ├── api-handler.js           // Handles AI model API calls
+    ├── html-renderer.js         // Renders the main chat UI
+    ├── utils.js                 // Utility functions (CORS, crypto, etc.)
+    ├── db.js                    // D1 database interaction layer
+    ├── auth-service.js          // User authentication, session management
+    ├── config.js                // Application constants (cookie names, etc.)
+    ├── middleware/
+    │   ├── auth-mw.js             // Authentication middleware
+    │   ├── turnstile-mw.js        // Turnstile challenge middleware
+    │   └── rate-limit-mw.js       // Rate limiting middleware
+    └── admin/
+        ├── admin-handler.js       // Handles /admin routes
+        ├── admin-html.js          // Renders admin UI components
+        └── admin-client.js        // Client-side JS for admin panel (conceptual)
