@@ -182,19 +182,21 @@ Therefore, this project **fully complies** with Cloudflare’s Acceptable Use Po
 **EN:** This project is free software: you can redistribute it and/or modify it under the terms of the **GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.**
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
 You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 **ZH:** 本项目是自由软件：您可以根据 **自由软件基金会发布的GNU通用公共许可证的条款重新分发和/或修改它，无论是许可证的第3版，还是（根据您的选择）任何更高版本。**
 
 分发本程序是希望它能有用，但没有任何担保；甚至没有对适销性或特定用途适用性的暗示担保。更多详情请参阅GNU通用公共许可证。
-
 您应该已经随本程序收到一份GNU通用公共许可证的副本。如果没有，请参阅 <https://www.gnu.org/licenses/>。
 
 You can find the full license text in the [LICENSE](LICENSE) file.
 您可以在 [LICENSE](LICENSE) 文件中找到完整的许可证文本。
 
 ---
+## Star History
+[![Star History Chart](https://api.star-history.com/svg?repos=qyjoy/qyjoy&type=Date)](https://star-history.com/#qyjoy/AI-Worker&Date)
+
+![](https://count.getloli.com/get/@qyjoy.github.readme)
 
 <p align="center">
   Made with ❤️ by 輕音Joy with Gemini Optimization	
