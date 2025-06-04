@@ -194,7 +194,7 @@ You can find the full license text in the [LICENSE](LICENSE) file.
 
 ---
 ## Star History
-[![Star History Chart](https://api.star-history.com/svg?repos=qyjoy/qyjoy&type=Date)](https://star-history.com/#qyjoy/AI-Worker&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=qyjoy/AI-Worker&type=Date)](https://star-history.com/#qyjoy/AI-Worker&Date)
 
 ![](https://count.getloli.com/get/@qyjoy.github.readme)
 
