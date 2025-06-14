@@ -9,6 +9,9 @@
   <b4>
 </p>
 <p align="center">
+    <a href="https://discord.gg/sQVz6vtf">
+    <img src="https://img.shields.io/discord/1018870125102895134?logo=discord" alt="chat" />
+  </a>
   <a href="https://github.com/qyjoy/AI-worker/stargazers"><img src="https://img.shields.io/github/stars/qyjoy/AI-worker?style=social" alt="GitHub Stars"></a>
   <a href="https://github.com/qyjoy/AI-worker/issues"><img src="https://img.shields.io/github/issues/qyjoy/AI-worker?style=flat-square&color=orange" alt="GitHub Issues"></a>
   <a href="https://github.com/qyjoy/AI-worker/blob/main/LICENSE"><img src="https://img.shields.io/github/license/qyjoy/AI-worker?style=flat-square&color=blue" alt="License"></a>
