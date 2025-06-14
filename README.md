@@ -9,9 +9,9 @@
   <b4>
 </p>
 <p align="center">
-  <a href="https://github.com/qyjoy/Gemini-CFworker/stargazers"><img src="https://img.shields.io/github/stars/qyjoy/Gemini-CFworker?style=social" alt="GitHub Stars"></a>
-  <a href="https://github.com/qyjoy/Gemini-CFworker/issues"><img src="https://img.shields.io/github/issues/qyjoy/Gemini-CFworker?style=flat-square&color=orange" alt="GitHub Issues"></a>
-  <a href="https://github.com/qyjoy/Gemini-CFworker/blob/main/LICENSE"><img src="https://img.shields.io/github/license/qyjoy/Gemini-CFworker?style=flat-square&color=blue" alt="License"></a>
+  <a href="https://github.com/qyjoy/AI-worker/stargazers"><img src="https://img.shields.io/github/stars/qyjoy/AI-worker?style=social" alt="GitHub Stars"></a>
+  <a href="https://github.com/qyjoy/AI-worker/issues"><img src="https://img.shields.io/github/issues/qyjoy/AI-worker?style=flat-square&color=orange" alt="GitHub Issues"></a>
+  <a href="https://github.com/qyjoy/AI-worker/blob/main/LICENSE"><img src="https://img.shields.io/github/license/qyjoy/AI-worker?style=flat-square&color=blue" alt="License"></a>
 <a href="https://workers.cloudflare.com/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Cloudflare%20Workers-Ready-orange?style=flat-square&logo=cloudflare" alt="Cloudflare Workers Ready"></a>
 <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:inline-flex;align-items:center;"><img src="https://img.shields.io/badge/Google-4285F4?style=flat-square&logo=googlegemini&logoColor=fff" alt="Google Gemini" style="border-radius:0 0 0 0;"><img src="https://img.shields.io/badge/Gemini-886FBF?style=flat-square&logo=&logoColor=fff" alt="Gemini" style="border-radius:0 0 0 0;"></a>
 </p>
@@ -23,7 +23,7 @@
 
 ## 🌐 Overview | 概述
 <a><img src="https://cf-assets.www.cloudflare.com/zkvhlag99gkb/4CNamrq69wPhKeFeFQBNe4/b65099939b3140c3cf947898ffea271f/Workers-diagram-MVP--copy-3_3x-8--1-.png" alt="Cloudflare Workers" width="700"/></a><br>
-**EN:** This Cloudflare Worker acts as a secure and efficient proxy for Google's Generative AI APIs (Gemini for text generation, Imagen for image generation). It allows you to:
+**EN:** This Cloudflare Worker allows you to:
 *   Access Google's powerful AI models from anywhere, including regions where direct access might be challenging.
 *   Securely manage your Google AI API key using Cloudflare's environment variables, keeping it out of client-side code.
 *   Provide a simple, customizable HTML interface for interacting with the AI.
@@ -31,16 +31,16 @@
 ![image](pic/1.png) 
 <br>Before: Your area > Not allow to access > AI ×
 <br>Now : Your area > Cloudflare Worker > AI √
-<br>**ZH:** 此Cloudflare Worker项目充当Google生成式AI API（Gemini用于文本生成，Imagen用于图像生成）的安全高效代理。它允许您：
+<br>**ZH:** 此Cloudflare Worker允许您：
 *   从任何地方访问Google强大的AI模型，包括那些可能难以直接访问的地区。
-*   使用Cloudflare的环境变量安全地管理您的Google AI API密钥，避免其暴露在客户端代码中。
+*   使用Cloudflare的环境变量安全地管理您的AI API(Gemini,ChatGPT等)密钥，避免其暴露在客户端代码中。
 *   提供一个简单、可定制的HTML界面与AI进行交互。
 *   利用Cloudflare的全球网络实现潜在的低延迟和高可扩展性。
 ## 🎈 Features | 功能
 ![image](pic/2.png) 
 *   **🎯 Proxy AI Requests / 转发AI请求:**
-    *   EN:Or you could say it's"Forward AI request", whatever, anyway → Securely routes requests to Google's Gemini and Imagen APIs.
-    *   ZH: 安全地将请求路由到Google的Gemini和Imagen API。
+    *   EN:Or you could say it's"Forward AI request", whatever, anyway → Securely routes requests to AIchat and Imagen APIs.
+    *   ZH: 安全地将请求API转发到AI源站点
 *   **🔑 API Key Management / API密钥管理:**
     *   EN: Store your API key securely in Cloudflare Worker environment variables.
     *   ZH: 将您的API密钥安全地存储在Cloudflare Worker环境变量中。
@@ -51,8 +51,8 @@
     *   EN: Pre-configured to handle Cross-Origin Resource Sharing.
     *   ZH: 已预先配置处理跨域资源共享（CORS）。
 *   **💨 Supports Streaming / 支持流式传输:**
-    *   EN: Handles streaming text responses from models like Gemini for real-time output.
-    *   ZH: 支持从Gemini等模型获取流式文本响应，实现实时输出。
+    *   EN: Handles streaming text responses from models like Gemini/GPT for real-time output.
+    *   ZH: 支持从Gemini/GPT等模型获取流式文本响应，实现实时输出。
 *   **🖼️ Supports Image Generation / 支持图像生成:**
     *   EN: Handles image generation requests and displays results from Imagen.
     *   ZH: 支持处理图像生成请求并显示来自Imagen的结果。
@@ -157,7 +157,7 @@ Cloudflare 所禁止的“网络代理”，指的是通用数据转发或翻墙
 ### 📊 API 转发 vs. 网络代理 对比表
 | 特性 / Feature                             | API Forward (API Proxy)                         | Network Proxy (VPN/SOCKS/Shadowsocks 等)      |
 |-------------------------------------------|------------------------------------------------|----------------------------------------------|
-| 🔌 访问范围                                | 指定 API 服务（如 Gemini、Imagen 等）          | 任意网站、应用程序、通用网络流量              |
+| 🔌 访问范围                                | 指定 API 服务（如 Gemini,Imagen,GPT 等）          | 任意网站、应用程序、通用网络流量              |
 | 🔍 ISO Layer                              | 基于7层的应用转发                               | 基于4层的网络包代理  |
 | 📦 数据内容                                | 请求和响应均为结构化 API 数据（如 JSON）         | 原始 IP 包或加密流量（如 TCP、UDP）            |
 | 🧠 用途                                     | 前端→Worker→API 安全转发，用于接口调用          | 匿名访问、翻墙、绕过网络限制                   |
@@ -165,7 +165,7 @@ Cloudflare 所禁止的“网络代理”，指的是通用数据转发或翻墙
 | 🛠️ 底层协议                                | HTTPS 请求转发                                  | TCP/IP 层或自定义加密隧道协议（如 VPN）        |
 | ☁️ Cloudflare 是否允许使用                 | ✅ 是，属于 Cloudflare Worker 正常用途           | ❌ 否，违反 Acceptable Use Policy              |
 | ⚙️ 部署复杂度                               | 低：纯 Worker 脚本 + API 配置                   | 高：需要服务端、端口映射、防火墙规则等         |
-| 🎯 示例项目                                 | Cloudflare Worker 转发 Gemini API              | Clash、Trojan、V2Ray、Shadowsocks 等工具       |
+| 🎯 示例项目                                 | Cloudflare Worker 转发 Gemini/chatGPT等 API              | Clash、Trojan、V2Ray、Shadowsocks 等工具       |
 > ✅ 本项目使用的是 **API Forward** 模式，完全符合 Cloudflare 的服务政策，安全、可控、稳定。
 
 **EN:**
@@ -199,7 +199,7 @@ You can find the full license text in the [LICENSE](LICENSE) file.
 ![](https://count.getloli.com/get/@qyjoy.github.readme)
 
 <p align="center">
-  Made with ❤️ by 輕音Joy with Gemini Optimization	
+  Made with ❤️ by 輕音Joy with AI Optimization	
   <br>
   <em>If you find this useful, please consider giving a ⭐!</em>
 </p>
