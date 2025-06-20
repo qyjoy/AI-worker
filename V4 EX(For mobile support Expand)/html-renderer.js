@@ -1136,8 +1136,8 @@ export function renderHTML(isMobile) {
           <label for="model" class="block mb-1 text-sm font-medium text-gray-300">👆选择模型 Choose A Model：</label>
           <select id="model" class="w-full p-2.5 rounded border text-white focus:ring-blue-500 focus:border-blue-500">
             <option value="gemini-2.0-flash" selected>Gemini 2.0 Flash ⚡ (Popular)</option>
-            <option value="gemini-2.5-flash-preview-04-17">Gemini 2.5 Preview 🔥 (Hot)</option>
-            <option value="gemini-2.5-pro-preview-05-06">Gemini 2.5 Pro Preview ⚙ (请在设置中填入自己的API)</option>
+            <option value="gemini-2.5-flash-preview-05-20">Gemini 2.5 Preview 🔥 (Hot)</option>
+            <option value="gemini-2.5-pro-preview-06-05">Gemini 2.5 Pro Preview ⚙ (请在设置中填入自己的API)</option>
             <option value="gemini-2.0-flash-preview-image-generation">Gemini Image Gen 图片生成 🛠️ (需在设置中填入自己的API)</option>
             <option value="veo-2.0-generate-001">Gemini Veo2 视频生成 🎬 (需在设置中填入自己的API)</option>
             <option value="" disabled>ChatGPT 4.5 🧪 (研发中-敬请期待)</option>
