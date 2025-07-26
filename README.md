@@ -65,14 +65,14 @@
 
 **EN:**
 *   **💸 Serverless & Cost-Effective:** No server management needed. The free tier is often generous enough for personal projects.
-*   **⚡ Edge Deployment:** Runs closer to your users, reducing latency.
+*   **⚡ Edge Deployment:** Runs closer to your users, reducing latency and DDos attack barely register thanks to Cloudflare's auto mitigation
 *   **📈 Scalability:** Automatically scales with traffic.
 *   **🚀 Ease of Deployment:** Deploy directly from the Cloudflare dashboard or via Wrangler CLI.
 *   **🔒 Secure API Key Handling:** Keep your API keys safe using encrypted environment variables.
 ![image](pic/4.png) 
 **ZH:**
 *   **💸 无服务器且经济高效：** 无需管理服务器。免费套餐通常足以满足个人项目需求。
-*   **⚡ 边缘部署：** 更接近用户运行，减少延迟。支持多种平台worker
+*   **⚡ 边缘部署：** 更接近用户运行，减少延迟,抗DDos，支持多种平台worker
 *   **📈 可扩展性：** 随流量自动扩展。
 *   **🚀 易于部署：** 可直接通过Cloudflare等平台控制台或Wrangler CLI部署。
 *   **🔒 安全的API密钥处理：** 使用加密的环境变量安全保管您的API密钥。
