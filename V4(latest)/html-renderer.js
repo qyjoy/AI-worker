@@ -790,8 +790,8 @@ export function renderHTML() {
         <div class="w-full sm:w-1/2">
           <label for="model" class="block mb-1 text-sm font-medium text-gray-300">选择模型 Choose A Model：</label>
           <select id="model" class="w-full p-2.5 rounded border text-white focus:ring-blue-500 focus:border-blue-500">
-            <option value="gemini-2.5-flash-preview-04-17">Gemini 2.5 Flash Preview</option>
-            <option value="gemini-2.5-pro-preview-05-06">Gemini 2.5 Pro Preview</option>
+            <option value="gemini-3.8-flash">Gemini 3.8 Flash</option>
+            <option value="gemini-3.1-pro-preview">Gemini 3.1 Pro Preview</option>
           </select>
         </div>
         <div class="w-full sm:w-1/2">
