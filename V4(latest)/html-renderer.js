@@ -781,7 +781,6 @@ export function renderHTML() {
   <div class="main-content-area">
     <div class="p-4 text-center">
       <h1 class="text-3xl font-bold my-4">Ultra AI ☁ Cloudflare 輕音Joy-AI公益站</h1>
-      <a href="https://qyjoy.vip" target="_blank" class="block font-bold cursor-pointer mb-3 animate-breathe" style="text-shadow:0 0 8px rgba(0,255,255,0.7);">抖音 | Bilibili | Youtube | 小红书 | 公众号: 輕音Joy</a>
       <p class="text-yellow-300 font-bold text-sm">Powered By Cloudflare ☁ Serverless | © 2025 輕音Joy</p>
     </div>
 
