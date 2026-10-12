@@ -20,6 +20,7 @@
   <em>Free, Private Gemini Access via Cloudflare. No VPN needed for restricted Countries. Full Control, with GPL 3.0 protocol</em>
   <br>
   <em>通过Cloudflare免费、私有化访问和管理Gemini~摆脱地域限制无烦恼，完全由自己掌控，原生gemini等AI模型，支持上传图片，录音等</em>
+  ![16.png](https://free.picui.cn/free/2025/08/01/688bba5993cc3.png)
 </p>
 
 ## 🌐 Overview | 概述
