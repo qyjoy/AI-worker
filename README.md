@@ -22,7 +22,7 @@
   <em>通过Cloudflare免费、私有化访问和管理Gemini~摆脱地域限制无烦恼，完全由自己掌控，原生gemini等AI模型，支持上传图片，录音等</em>
 </p>
     
-[![16.png](https://free.picui.cn/free/2025/08/01/688bba5993cc3.png)](https://free.picui.cn/free/2025/08/01/688bba5993cc3.png)
+[![cloudflare](https://free.picui.cn/free/2025/08/01/688bba5993cc3.png)](https://free.picui.cn/free/2025/08/01/688bba5993cc3.png)
     
 ## 🌐 Overview | 概述
 <a><img src="https://cf-assets.www.cloudflare.com/zkvhlag99gkb/4CNamrq69wPhKeFeFQBNe4/b65099939b3140c3cf947898ffea271f/Workers-diagram-MVP--copy-3_3x-8--1-.png" alt="Cloudflare Workers" width="700"/></a><br>
